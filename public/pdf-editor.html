@@ -2,7 +2,145 @@
 <!--
 Datei: pdf-editor.html
 Zweck: PDF-Editor für Tutoren zum Bearbeiten von Korrekturen.
-
-TODO:
-- [Wichtig] Vollständig implementieren.
 -->
+
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Assignment Upload Tool - PDF-Editor</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  />
+  <script src="../assets/js/scripts.js" defer></script>
+</head>
+<body>
+<header class="main-header">
+  <div class="hamburger-menu" id="hamburgerMenu">
+    <i class="fa fa-bars"></i>
+  </div>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
+      <li><a href="courses.html" data-nav="courses">Kurse</a></li>
+      <li><a href="groups.html" data-nav="groups">Gruppen</a></li>
+      <li><a href="settings.html" data-nav="settings">Einstellungen</a></li>
+    </ul>
+  </nav>
+  <div class="profile-icon">
+    <img
+      src="../assets/images/profile-picture.png"
+      alt="Profil"
+      id="avatarIcon"
+    />
+    <span class="notification-badge">1</span>
+    <div class="avatar-popup" id="avatarPopup">
+      <ul>
+        <li><a href="#" id="editProfile">Profil bearbeiten</a></li>
+        <li><a href="settings.html">Einstellungen</a></li>
+        <li><a href="#" id="help">Hilfe</a></li>
+        <li><a href="#" id="logoutButton">Abmelden</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main class="main-content">
+  <h1>PDF Editor</h1>
+
+  <div class="editor-toolbar">
+    <button class="btn-secondary" title="Fett"><i class="fas fa-bold"></i></button>
+    <button class="btn-secondary" title="Kursiv"><i class="fas fa-italic"></i></button>
+    <button class="btn-secondary" title="Unterstrichen"><i class="fas fa-underline"></i></button>
+    <button class="btn-secondary" title="Hervorheben"><i class="fas fa-highlighter"></i></button>
+    <button class="btn-secondary" title="Listen"><i class="fas fa-list"></i></button>
+    <button class="btn-secondary" title="Einfügen Bild"><i class="fas fa-image"></i></button>
+    <button class="btn-secondary" title="Code"><i class="fas fa-code"></i></button>
+  </div>
+
+  <!-- PDF-Vorschau -->
+  <div class="pdf-preview" style="margin-bottom: 20px;">
+    <iframe
+      src="https://www.math.uni-duesseldorf.de/~internet/ANA_1_WS22/Ana1_Blatt10.pdf"
+      width="100%"
+      height="600px"
+    ></iframe>
+  </div>
+
+  <!-- Tabelle zum Eintragen von Punkten -->
+  <h2>Punktevergabe</h2>
+  <table class="table-tasks" style="width: 50%; margin-bottom: 20px; margin-left: 0;">
+    <thead>
+      <tr>
+        <th>Aufgabe</th>
+        <th>Max. Punkte</th>
+        <th>Erreichte Punkte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>6</td>
+        <td><input type="number" id="points101" style="width: 60px;" /></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>6</td>
+        <td><input type="number" id="points102" style="width: 60px;" /></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>6</td>
+        <td><input type="number" id="points103" style="width: 60px;" /></td>
+      </tr>
+      <tr>
+        <td><strong>Gesamt</strong></td>
+        <td><strong>18</strong></td>
+        <td><span id="pointsTotal">0</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Korrektur hochladen-Button -->
+  <button class="btn btn-primary" id="uploadCorrectionBtn">
+    Korrektur einreichen
+  </button>
+  <div class="submit-container" style="margin-top: 1rem;">
+    <div class="progress-wrapper">
+      <div class="progress-bar" id="correctionProgress" style="display: none;">
+        <div class="progress-fill" id="correctionProgressFill"></div>
+      </div>
+      <span id="correctionProgressPercent" style="display: none;">0%</span>
+    </div>
+  </div>
+
+
+</main>
+
+<aside class="sidebar">
+
+    <div class="notification" id="notificationTutorCorrection" style="display: none;">
+      <p class="notification-title">Korrektur erfolgreich hochgeladen</p>
+      <p class="notification-time">Gerade eben</p>
+    </div>
+
+  
+    <div class="notification" id="notificationHA11" style="display: none;">
+      <p class="notification-title">HA11 (GMCI) erfolgreich eingereicht</p>
+      <p class="notification-time">Gerade eben</p>
+    </div>
+  
+    <div class="notification">
+      <p class="notification-title">Neue Korrektur verfügbar</p>
+      <p class="notification-time">Vor drei Tagen</p>
+    </div>
+    <div class="sidebar-content" id="calendarContainer">
+    </div>
+  </aside>
+
+<div class="robot-avatar">
+  <img src="../assets/images/robot-avatar.png" alt="Avatar" />
+</div>
+</body>
+</html>

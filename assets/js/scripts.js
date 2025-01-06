@@ -6,11 +6,6 @@
  * - Initialisierung und Verwaltung aller Funktionen (z.B. Kalender, Datei-Uploads, Dark-Mode).
  */
 
-document.addEventListener("DOMContentLoaded", function () {
-  // --------------------------------------------------
-  // GLOBALE VARIABLEN & KONSTANTEN
-  // --------------------------------------------------
-
   /** 
    * Speichert den aktuell angezeigten Monat (0 = Januar, 11 = Dezember).
    * Wird für die Kalenderfunktion verwendet.
@@ -26,6 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
    * Enthält die Referenz auf das geladene Sidebar-Element (wird dynamisch geladen).
    */
   let globalSidebarContainer = null;
+
+document.addEventListener("DOMContentLoaded", function () {
+  // --------------------------------------------------
+  // GLOBALE VARIABLEN & KONSTANTEN
+  // --------------------------------------------------
+
+
 
   /**
    * Dient zur Bestimmung, auf welcher Seite sich der Nutzer befindet.
@@ -110,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
           event.preventDefault();
           localStorage.removeItem("assignment11Uploaded");
           localStorage.removeItem("assignment11SubmittedFiles");
+          localStorage.removeItem("analysis10CorrectionDone");
           window.location.href = "index.html";
         });
       }
@@ -316,24 +319,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (notificationHA11) {
       notificationHA11.style.display = ha11Visible ? "block" : "none";
+  }
+
+  updateNotificationBadge();
+
+    const userRole = localStorage.getItem("userRole") || "student";
+    const analysisDone = localStorage.getItem("analysis10CorrectionDone") === "true";
+
+    const notificationTutorCorrection = container.querySelector("#notificationTutorCorrection");
+    if (notificationTutorCorrection) {
+        if (userRole === "tutor" && analysisDone) {
+            notificationTutorCorrection.style.display = "block";
+        } else {
+            notificationTutorCorrection.style.display = "none";
+        }
     }
 
-    updateNotificationBadge();
+    const dashboardOverallProgressFill = document.getElementById("dashboardOverallProgressFill");
+    const dashboardOverallProgressPercent = document.getElementById("dashboardOverallProgressPercent");
+
+
   }
 
   /**
    * Setzt die Zahl im roten Notifications-Badge (in der Profil-Icon-Ecke).
    * Basis-Logik: 1 Notification (Neue Korrektur) + 1 wenn HA11 eingereicht.
    */
+  // Neue Variante, einfach +1 bei jeder addNewNotification():
   function updateNotificationBadge() {
+    // Standard immer 1
     let count = 1;
+  
+    // Hausaufgabe 11 eingereicht?
     const savedFilesJson = localStorage.getItem("assignment11SubmittedFiles");
     if (savedFilesJson) {
       const savedFiles = JSON.parse(savedFilesJson);
       if (Array.isArray(savedFiles) && savedFiles.length > 0) {
-        count = 2;
+        count += 1; // +1 wenn HA11 existiert
       }
     }
+  
+    // Tutor-Korrektur (analysis10CorrectionDone) eingereicht?
+    const analysisDone = localStorage.getItem("analysis10CorrectionDone") === "true";
+    if (analysisDone) {
+      count += 1; // +1 wenn Korrektur fertig
+    }
+  
     const badge = document.querySelector(".notification-badge");
     if (badge) {
       badge.textContent = count;
@@ -597,6 +628,14 @@ document.addEventListener("DOMContentLoaded", function () {
   if (loginForm) {
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault();
+      const usernameValue = document.getElementById("username").value.trim().toLowerCase();
+    if (usernameValue === "tutor") {
+      // Wenn "tutor" eingegeben wird, soll diese Person TUTOR sein
+      localStorage.setItem("userRole", "tutor");
+    } else {
+      // Alle anderen sind STUDENTEN
+      localStorage.setItem("userRole", "student");
+    }
       window.location.href = "dashboard.html";
     });
   }
@@ -736,6 +775,109 @@ document.addEventListener("DOMContentLoaded", function () {
       progressFill.style.width = `${newPercent}%`;
       progressText.textContent = `Gesamtfortschritt: ${newPercent}%`;
     }
+
+    const userRole = localStorage.getItem("userRole");
+  if (userRole === "tutor") {
+    const tutorSection = document.getElementById("tutorDashboardSection");
+    if (tutorSection) {
+      tutorSection.style.display = "block";
+    }
+  }
+
+  const analysis10Done = localStorage.getItem("analysis10CorrectionDone") === "true";
+if (analysis10Done) {
+    const tutorTableRows = document.querySelectorAll("#tutorDashboardSection table.table-tasks tbody tr");
+    tutorTableRows.forEach((row) => {
+      const correctionLink = row.querySelector(".correction-link");
+      if (correctionLink) {
+  
+        correctionLink.textContent = "Abgeschlossen";
+        correctionLink.removeAttribute("href");
+        correctionLink.style.pointerEvents = "none";
+
+      }
+    });
+
+    const tutorProgressFill = document.getElementById("tutorProgressFill");
+    const tutorProgressPercent = document.getElementById("tutorProgressPercent");
+    if (tutorProgressFill) tutorProgressFill.style.width = "100%";
+    if (tutorProgressPercent) {
+        tutorProgressPercent.textContent = "Korrektur-Fortschritt: 100%";
+    }
+
+
+
+
+    // Notification "Korrektur erfolgreich hochgeladen" für den Tutor anzeigen
+    const notificationTutorCorrection = document.getElementById("notificationTutorCorrection");
+    if (notificationTutorCorrection) {
+        notificationTutorCorrection.style.display = "block";
+    }
+
+  
+}
+  }
+
+  if (currentPage === "pdf-editor") {
+    // Punkte summieren, wenn man in die Eingabefelder klickt
+    const points101 = document.getElementById("points101");
+    const points102 = document.getElementById("points102");
+    const points103 = document.getElementById("points103");
+    const pointsTotal = document.getElementById("pointsTotal");
+  
+    function updateTotalPoints() {
+      const val101 = parseInt(points101.value) || 0;
+      const val102 = parseInt(points102.value) || 0;
+      const val103 = parseInt(points103.value) || 0;
+      const sum = val101 + val102 + val103;
+      pointsTotal.textContent = sum;
+    }
+  
+    if (points101 && points102 && points103) {
+      [points101, points102, points103].forEach((input) => {
+        input.addEventListener("input", updateTotalPoints);
+      });
+    }
+  
+    // Upload-Button
+    const uploadBtn = document.getElementById("uploadCorrectionBtn");
+    if (uploadBtn) {
+      uploadBtn.addEventListener("click", () => {
+
+        const progressBar = document.getElementById("correctionProgress");
+        const progressFill = document.getElementById("correctionProgressFill");
+        const progressPercent = document.getElementById("correctionProgressPercent");
+        if (progressBar) progressBar.style.display = "block";
+        if (progressPercent) {
+          progressPercent.style.display = "inline";
+          progressPercent.textContent = "0%";
+        }
+  
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += Math.floor(Math.random() * 10) + 5;
+          if (progress > 100) progress = 100;
+          if (progressFill) progressFill.style.width = `${progress}%`;
+          if (progressPercent) progressPercent.textContent = `${progress}%`;
+  
+          if (progress === 100) {
+            clearInterval(interval);
+            // Korrektur-Fortschritt auf 100%
+            const tutorProgressFill = document.getElementById("tutorProgressFill");
+            const tutorProgressPercent = document.getElementById("tutorProgressPercent");
+            if (tutorProgressFill) tutorProgressFill.style.width = "100%";
+            if (tutorProgressPercent) {
+              tutorProgressPercent.textContent = "Korrektur-Fortschritt: 100%";
+            }
+  
+            localStorage.setItem("analysis10CorrectionDone", "true");
+            addNewNotification("Korrektur hochgeladen", "Gerade eben");
+            // +1 auf Badge:
+            updateNotificationBadge(true);
+          }
+        }, 500);
+      });
+    }
   }
 
   // --------------------------------
@@ -801,3 +943,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+function addNewNotification(title, time) {
+  const sidebar = globalSidebarContainer || document;
+  const newNotif = document.createElement("div");
+  newNotif.classList.add("notification");
+  newNotif.innerHTML = `
+    <p class="notification-title">${title}</p>
+    <p class="notification-time">${time}</p>
+  `;
+  const existingNotifs = sidebar.querySelectorAll(".notification");
+  if (existingNotifs.length > 0) {
+    existingNotifs[0].parentNode.insertBefore(newNotif, existingNotifs[0]);
+  } else {
+    sidebar.querySelector(".sidebar-content").appendChild(newNotif);
+  }
+}

@@ -2,11 +2,6 @@
 <!--
 Datei: index.html
 Zweck: Login-Seite für das Assignment Upload Tool.
-
-TODO:
-- [Wichtig] Benutzerrollen erkennen: Beim Eingeben des Benutzernamens "student" oder "tutor" entsprechende Weiterleitungen zu unterschiedlichen UIs implementieren.
-- [Wichtig] UI-Anpassung basierend auf Rolle: Nach dem Login Benutzer zu unterschiedlichen UIs weiterleiten, abhängig von ihrer Rolle.
-- [Wichtig] Tutor-Funktionalität erweitern: Spezifische Funktionen für Tutoren implementieren, die bisher noch nicht explizit vorhanden sind (z.B. Korrekturen hochladen).
 -->
 <html lang="de">
 <head>
@@ -77,5 +72,13 @@ TODO:
       </select>
     </div>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const badge = document.querySelector(".notification-badge");
+      if (badge) {
+        badge.textContent = "1";
+      }
+    });
+  </script>
 </body>
 </html>
