@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Datei: view-correction.html
+Zweck: Anzeige einer Korrektur (z.B. PDF) innerhalb eines iFrame.
+
+TODO:
+- [Optional] Eine richtige PDF-Korrektur implementieren (aktuell nur ein normales Übungsblatt ohne Korrektur).
+-->
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Assignment Upload Tool - Korrektur ansehen</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+  />
+  <script src="../assets/js/scripts.js" defer></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="hamburger-menu" id="hamburgerMenu">
+      <i class="fa fa-bars"></i>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
+        <li><a href="courses.html" data-nav="courses">Kurse</a></li>
+        <li><a href="groups.html" data-nav="groups">Gruppen</a></li>
+        <li><a href="settings.html" data-nav="settings">Einstellungen</a></li>
+      </ul>
+    </nav>
+    <div class="profile-icon">
+      <img 
+        src="../assets/images/profile-picture.png" 
+        alt="Profil" 
+        id="avatarIcon" 
+      />
+      <span class="notification-badge">2</span>
+      <div class="avatar-popup" id="avatarPopup">
+        <ul>
+          <li><a href="#" id="editProfile">Profil bearbeiten</a></li>
+          <li><a href="settings.html">Einstellungen</a></li>
+          <li><a href="#" id="help">Hilfe</a></li>
+          <li><a href="#" id="logoutButton">Abmelden</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Korrektur HA 12</h1>
+    <h2 style="font-size: 1.2em; color: gray; margin-top: -10px;">Stochastik II</h2>
+    <div class="pdf-preview">
+      <iframe 
+        src="https://wwwold.mathematik.tu-dortmund.de/lsiv/2017Winter/StochII/blatt12.pdf" 
+        width="100%" 
+        height="600px"
+      ></iframe>
+    </div>
+    <div class="robot-avatar">
+      <img 
+        src="../assets/images/robot-avatar.png" 
+        alt="Avatar" 
+      />
+    </div>
+  </main>
+
+  <div id="sidebar"></div>
+</body>
+</html>
