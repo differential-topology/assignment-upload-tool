@@ -532,23 +532,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // Header-Funktionen starten (Navigation, AvatarPopup etc.)
   setupHeaderJS();
 
-  // Sidebar laden (falls existiert) und darin Kalender platzieren
-  const sidebarContainer = document.getElementById("sidebar");
+  // Sidebar-Element direkt verwenden, um die Same-Origin-Policy zu umgehen.
+  // Der Sidebar-Container wird gesucht, Benachrichtigungen werden aktualisiert,
+  // und der Kalender wird direkt in der Sidebar generiert.
+  const sidebarContainer = document.querySelector(".sidebar");
   if (sidebarContainer) {
-    fetch("../assets/components/sidebar.html")
-      .then((response) => response.text())
-      .then((data) => {
-        sidebarContainer.innerHTML = data;
-        globalSidebarContainer = sidebarContainer;
-        updateNotificationDisplay(globalSidebarContainer);
-
-        // KalenderContainer im Sidebar-DOM suchen und Kalender erzeugen
-        const calendarContainer = sidebarContainer.querySelector("#calendarContainer");
-        if (calendarContainer) {
-          calendarContainer.innerHTML = generateCalendar();
-        }
-      })
-      .catch((error) => console.error("Fehler beim Laden von sidebar.html:", error));
+    globalSidebarContainer = sidebarContainer;
+    updateNotificationDisplay(globalSidebarContainer);
+    const calendarContainer = sidebarContainer.querySelector("#calendarContainer");
+    if (calendarContainer) {
+      calendarContainer.innerHTML = generateCalendar();
+    }
   }
 
   // --------------------------------
