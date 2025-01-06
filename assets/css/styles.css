@@ -786,18 +786,30 @@
      NOTIFICATIONS
      ========================= */
   .notification {
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 6px;
     padding: 12px;
+    padding-left: 25px;
     margin-bottom: 12px;
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .notification:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  .notification::before {
+    position: absolute;
+    content: '';
+    border-radius: 6px;
+    background-color: red;
+    width: 5px;
+    top: 7px;
+    bottom: 7px;
+    left: 10px;
   }
   .notification-title {
     font-size: 16px;

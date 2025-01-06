@@ -740,7 +740,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (progressFill && progressText) {
       const newPercent = hasSubmittedHA11 ? 84 : 82;
       progressFill.style.width = `${newPercent}%`;
-      progressText.textContent = `${newPercent}%`;
+      progressText.textContent = `Gesamtfortschritt: ${newPercent}%`;
     }
   }
 
