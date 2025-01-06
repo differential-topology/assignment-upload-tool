@@ -814,14 +814,14 @@
     position: absolute;
     content: '';
     border-radius: 6px;
-    background-color: red;
+    background-color: #4287f5;
     width: 5px;
     top: 7px;
     bottom: 7px;
     left: 10px;
   }
   .notification.success::before {
-    background-color: #4287f5;
+    background-color: green;
   }
   .notification-title {
     font-size: 16px;
