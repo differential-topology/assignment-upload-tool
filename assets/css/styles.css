@@ -665,11 +665,12 @@
     position: absolute;
     bottom: 80px;
     right: 70px;
-    width: 250px;
+    width: 350px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 1rem;
+    padding-bottom: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     font-size: 0.95rem;
     z-index: 2000;
@@ -700,15 +701,15 @@
     font-size: 0.95rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    max-width: 350px;
   }
   .btn-send {
     height: 38px;
-    width: 38px;
+    width: 25px;
     background-color: transparent;
     color: #000000;
     border: none;
     border-radius: 4px;
-    padding: 0.5rem;
     cursor: pointer;
   }
   .btn-send i {
