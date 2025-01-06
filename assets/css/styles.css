@@ -236,11 +236,11 @@
     padding: 0.5rem;
   }
 
-  table.table-tasks tbody tr td { /* Striche zwischen den Tabellenzeilen entfernen */
+  table tbody tr td { /* Striche zwischen den Tabellenzeilen entfernen */
     border-top: none !important; 
   } 
 
-  table.table-tasks tbody tr:not(:last-child) td { /* Dabei die unterste Border in der Tabelle behalten */
+  table tbody tr:not(:last-child) td { /* Dabei die unterste Border in der Tabelle behalten */
     border-bottom: none !important;
   }
 
