@@ -235,7 +235,15 @@
     border: 1px solid #ccc;
     padding: 0.5rem;
   }
-  
+
+  table.table-tasks tbody tr td { /* Striche zwischen den Tabellenzeilen entfernen */
+    border-top: none !important; 
+  } 
+
+  table.table-tasks tbody tr:not(:last-child) td { /* Dabei die unterste Border in der Tabelle behalten */
+    border-bottom: none !important;
+  }
+
   .sort-btn {
     position: static;
     transform: none;
