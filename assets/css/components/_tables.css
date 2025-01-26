@@ -6,6 +6,7 @@ Diese Datei definiert die Stile für Tabellen, inklusive Sortierung, Farbkodieru
 .table-courses,
 .table-groups,
 .table-tasks,
+.table-points,
 .uploaded-files {
   width: 100%;
   border-collapse: collapse;
@@ -27,10 +28,22 @@ Diese Datei definiert die Stile für Tabellen, inklusive Sortierung, Farbkodieru
   background-color: #f4f4f4;
 }
 
+.table-points th {
+  position: relative;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border: 1px solid #ddd;
+  text-align: center;
+  color: white;
+
+  white-space: normal;
+  background-color: #4287f5;
+}
+
 .table-section td,
 .table-courses td,
 .table-groups td,
 .table-tasks td,
+.table-points td,
 .uploaded-files td {
   padding: 0.5rem;
   border: 1px solid #ddd;
@@ -144,18 +157,21 @@ td.course-cell {
 
 .table-courses tbody tr:nth-child(odd),
 .table-tasks tbody tr:nth-child(odd),
+.table-points tbody tr:nth-child(odd),
 .table-groups tbody tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
 
 .table-courses tbody tr:nth-child(even),
 .table-tasks tbody tr:nth-child(even),
+.table-points tbody tr:nth-child(even),
 .table-groups tbody tr:nth-child(even) {
   background-color: #ffffff;
 }
 
 .table-courses tbody tr:hover,
 .table-tasks tbody tr:hover,
+.table-points tbody tr:hover,
 .table-groups tbody tr:hover {
   background-color: #e2eefe;
 }
