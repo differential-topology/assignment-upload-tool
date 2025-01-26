@@ -1,0 +1,41 @@
+/*
+Diese zentrale CSS-Datei organisiert alle Stylesheets nach dem SMACSS-Pattern (Scalable and Modular Architecture for CSS).
+*/
+
+/* Basis-Stile für Reset */
+@import url("./base/_reset.css");
+@import url("./base/_base.css");
+
+/* Haupt-Layoutstrukturen */
+@import url("./layout/_header.css");
+@import url("./layout/_main-content.css");
+@import url("./layout/_sidebar.css");
+
+/* Wiederverwendbare Komponenten */
+@import url("./components/_buttons.css");
+@import url("./components/_calendar.css");
+@import url("./components/_chat-bubble.css");
+@import url("./components/_editor-toolbar.css");
+@import url("./components/_forms.css");
+@import url("./components/_language-select.css");
+@import url("./components/_login.css");
+@import url("./components/_notifications.css");
+@import url("./components/_password-field.css");
+@import url("./components/_progress-bar.css");
+@import url("./components/_tables.css");
+@import url("./components/_tooltips.css");
+@import url("./components/_upload.css");
+@import url("./components/_developer-settings-panel.css");
+@import url("./components/_logger.css");
+@import url("./components/_toast.css");
+@import url("./components/_progress-tooltip.css");
+
+/* Komplexe, eigenständige Module */
+@import url("./modules/_avatar.css");
+@import url("./modules/_robot.css");
+
+/* Theme-Variationen und Hilfsfunktionen */
+@import url("./themes/_dark-mode.css");
+
+@import url("./utils/_responsive.css");
+@import url("./utils/dom-loading.css");

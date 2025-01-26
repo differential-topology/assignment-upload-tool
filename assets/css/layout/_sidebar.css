@@ -1,0 +1,16 @@
+/*
+Diese Datei definiert die Stile für die fixierte Seitenleiste mit automatischem Scrolling.
+*/
+.sidebar {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  width: 300px;
+  min-height: 200px;
+  max-height: calc(100vh - 110px);
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}

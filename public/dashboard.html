@@ -1,181 +1,704 @@
 <!DOCTYPE html>
 <!--
-Datei: dashboard.html
-Zweck: Dashboard-Übersicht mit Aufgabenstatus.
-
-TODO:
-- [Mittel] Funktionalität des KI-Assistenten simulieren (Wizard of Oz Technik).
-- [Optional] Sortierfunktionalität für die Tabellen implementieren (ähnlich wie in anderen Screens).
-- [Optional] Alle Kurse und Hausaufgaben anklickbar machen.
+Dashboard-Hauptseite des Assignment Upload Tools mit Aufgabenübersicht, Fortschrittsanzeigen und Benachrichtigungen.
 -->
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link 
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-  />
-  <script src="../assets/js/scripts.js" defer></script>
-</head>
-<body>
-  <header class="main-header">
-    <div class="hamburger-menu" id="hamburgerMenu">
-      <i class="fa fa-bars"></i>
-    </div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
-        <li><a href="courses.html" data-nav="courses">Kurse</a></li>
-        <li><a href="groups.html" data-nav="groups">Gruppen</a></li>
-        <li><a href="settings.html" data-nav="settings">Einstellungen</a></li>
-      </ul>
-    </nav>
-    <div class="profile-icon">
-      <img 
-        src="../assets/images/profile-picture.png" 
-        alt="Profil" 
-        id="avatarIcon" 
-      />
-      <span class="notification-badge">1</span>
-      <div class="avatar-popup" id="avatarPopup">
+  <head>
+    <!-- Grundlegende Meta-Tags und externe Ressourcen -->
+    <meta charset="UTF-8" />
+    <title data-i18n="title_dashboard">
+      Assignment Upload Tool - Dashboard
+    </title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <script src="../assets/js/main.js" type="module"></script>
+  </head>
+  <body>
+    <!-- Hauptnavigation mit Hamburger-Menü und Profilbereich -->
+    <header class="main-header">
+      <div class="hamburger-menu" id="hamburgerMenu">
+        <i class="fa fa-bars"></i>
+      </div>
+      <nav class="main-nav">
         <ul>
-          <li><a href="#" id="editProfile">Profil bearbeiten</a></li>
-          <li><a href="settings.html">Einstellungen</a></li>
-          <li><a href="#" id="help">Hilfe</a></li>
-          <li><a href="#" id="logoutButton">Abmelden</a></li>
+          <li>
+            <a
+              href="dashboard.html"
+              data-nav="dashboard"
+              data-i18n="nav_dashboard"
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="courses.html" data-nav="courses" data-i18n="nav_courses"
+              >Kurse</a
+            >
+          </li>
+          <li>
+            <a href="groups.html" data-nav="groups" data-i18n="nav_groups"
+              >Gruppen</a
+            >
+          </li>
+          <li>
+            <a href="settings.html" data-nav="settings" data-i18n="nav_settings"
+              >Einstellungen</a
+            >
+          </li>
         </ul>
-      </div>
-    </div>
-  </header>
-
-  <main class="main-content">
-    <h1>Aufgabenübersicht</h1>
-
-    <section class="table-section">
-      <table class="table-tasks">
-        <thead>
-          <tr>
-            <th>Kurs <button class="sort-btn">⇅</button></th>
-            <th>Aufgabe <button class="sort-btn">⇅</button></th>
-            <th>Abgabedatum <button class="sort-btn">⇅</button></th>
-            <th>Status <button class="sort-btn">⇅</button></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Stochastik II</td>
-            <td>Hausaufgabe 12</td>
-            <td>03.01.2025</td>
-            <td>
-              <a href="view-correction.html">Korrektur</a> |
-              <a href="#">Musterlösung</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Grundlagen der MCI</td>
-            <td><a href="upload-assignment.html">Hausaufgabe 11</a></td>
-            <td>13.01.2025</td>
-            <td>
-              <input type="checkbox" disabled /> Nicht abgegeben
-            </td>
-          </tr>
-          <tr>
-            <td>Stochastik II</td>
-            <td>Hausaufgabe 13</td>
-            <td>24.01.2025</td>
-            <td>
-              <input type="checkbox" disabled /> Nicht abgegeben
-            </td>
-          </tr>
-          <tr>
-            <td>Analysis II</td>
-            <td>Übungsblatt 14</td>
-            <td>28.01.2025</td>
-            <td>
-              <input type="checkbox" disabled /> Nicht abgegeben
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="overall-progress-section" style="margin-top: 40px;">
-      <div class="progress-wrapper" style="width: 300px; text-align: center;">
-        <div class="progress-bar">
-          <div 
-            class="progress-fill"
-            id="dashboardOverallProgressFill"
-            style="width: 82%;"
-          ></div>
+      </nav>
+      <div class="profile-icon">
+        <img
+          src="../assets/images/profile-picture.png"
+          alt="Profil"
+          id="avatarIcon"
+          data-i18n-alt="profile_avatar_alt"
+        />
+        <span class="notification-badge" style="display: none"> </span>
+        <div class="avatar-popup" id="avatarPopup">
+          <ul>
+            <li>
+              <a href="#" id="editProfile" data-i18n="edit_profile"
+                >Profil bearbeiten</a
+              >
+            </li>
+            <li>
+              <a href="settings.html" data-i18n="settings">Einstellungen</a>
+            </li>
+            <li>
+              <a href="#" id="help" data-i18n="help">Hilfe</a>
+            </li>
+            <li>
+              <a href="#" id="logoutButton" data-i18n="logout">Abmelden</a>
+            </li>
+          </ul>
         </div>
-        <span id="dashboardOverallProgressPercent">Gesamtfortschritt: 82%</span>
       </div>
-    </section>
-
-    <section class="table-section" id="tutorDashboardSection" style="display: none;">
-      <h2>Tutor-Übersicht</h2>
-      <table class="table-tasks">
+    </header>
+    <main class="main-content">
+      <h1 data-i18n="task_overview_title">Aufgabenübersicht</h1>
+      <!-- Aufgabentabelle mit Status und (Sortierung) -->
+      <section class="table-section">
+        <table class="table-tasks">
           <thead>
-              <tr>
-                  <th>Zu korrigierende Aufgabenblätter</th>
-                  <th>Abgabefrist</th>
-                  <th>Status</th>
-              </tr>
+            <tr>
+              <th>
+                <span data-i18n="course_column">Kurs</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="task_column">Aufgabe</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="due_date_column">Abgabedatum</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="status_column">Status</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+            </tr>
           </thead>
           <tbody>
             <tr>
-                <td>Übungsblatt 9 (Analysis I)</td>
-                <td>05.01.2025</td>
-                <td>Abgeschlossen</td>
+              <td class="course-cell">
+                <span class="course-marker course-stochastik-ii"></span>
+                <span>
+                  <a
+                    href="#"
+                    class="not-implemented-link"
+                    data-i18n="course_stochastic_ii"
+                  >
+                    Stochastik II
+                  </a>
+                </span>
+              </td>
+              <td>
+                <a
+                  href="#"
+                  class="not-implemented-link"
+                  data-i18n="task_homework_12"
+                >
+                  Hausaufgabe 12
+                </a>
+              </td>
+              <td data-i18n="due_date_14012025">14.01.2025</td>
+              <td>
+                <a href="view-correction.html" data-i18n="correction_link"
+                  >Korrektur</a
+                >
+                |
+                <a href="#" data-i18n="solution_link">Musterlösung</a>
+              </td>
             </tr>
             <tr>
-                <td>Übungsblatt 10 (Analysis I)</td>
-                <td>25.01.2025</td>
-                <td>
-                
-                  <a href="pdf-editor.html" class="correction-link">Jetzt korrigieren</a>
-                </td>
+              <td class="course-cell">
+                <span class="course-marker course-gmci"></span>
+                <span>
+                  <a
+                    href="#"
+                    class="not-implemented-link"
+                    data-i18n="course_gmci"
+                  >
+                    GMCI
+                  </a>
+                </span>
+              </td>
+
+              <td>
+                <a href="upload-assignment.html" data-i18n="task_homework_11"
+                  >Hausaufgabe 11</a
+                >
+              </td>
+              <td data-i18n="due_date_29012025">29.01.2025</td>
+              <td>
+                <i
+                  class="fa-solid fa-circle-exclamation"
+                  style="color: #a4a4ae; margin-right: 5px; font-size: 16px"
+                ></i>
+                <span data-i18n="status_not_submitted">Nicht abgegeben</span>
+              </td>
             </tr>
-        </tbody>
-      </table>
-      <div class="progress-wrapper" style="width: 300px; text-align: center; margin-top: 20px;">
-          <div class="progress-bar">
-              <div
-                  class="progress-fill"
-                  id="tutorProgressFill"
-                  style="width: 50%;"
-              ></div>
+            <tr>
+              <td class="course-cell">
+                <span class="course-marker course-stochastik-ii"></span>
+                <span>
+                  <a
+                    href="#"
+                    class="not-implemented-link"
+                    data-i18n="course_stochastic_ii"
+                  >
+                    Stochastik II
+                  </a>
+                </span>
+              </td>
+
+              <td>
+                <a
+                  href="#"
+                  class="not-implemented-link"
+                  data-i18n="task_homework_13"
+                >
+                  Hausaufgabe 13
+                </a>
+              </td>
+              <td data-i18n="due_date_31012025">31.01.2025</td>
+              <td>
+                <i
+                  class="fa-solid fa-circle-exclamation"
+                  style="color: #a4a4ae; margin-right: 5px; font-size: 16px"
+                ></i>
+                <span data-i18n="status_not_submitted">Nicht abgegeben</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="course-cell">
+                <span class="course-marker course-analysis-ii"></span>
+                <span>
+                  <a
+                    href="#"
+                    class="not-implemented-link"
+                    data-i18n="course_analysis_ii"
+                  >
+                    Analysis II
+                  </a>
+                </span>
+              </td>
+
+              <td>
+                <a
+                  href="#"
+                  class="not-implemented-link"
+                  data-i18n="task_sheet_14"
+                >
+                  Übungsblatt 14
+                </a>
+              </td>
+              <td data-i18n="due_date_04022025">04.02.2025</td>
+              <td>
+                <i
+                  class="fa-solid fa-circle-exclamation"
+                  style="color: #a4a4ae; margin-right: 5px; font-size: 16px"
+                ></i>
+                <span data-i18n="status_not_submitted">Nicht abgegeben</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Fortschrittsbereich mit detaillierten Kursübersichten -->
+      <section id="overall-progress-section" style="margin-top: 10px">
+        <div class="progress-wrapper" style="width: 300px; position: relative">
+          <div style="display: flex; align-items: center">
+            <div style="flex: 1">
+              <div class="progress-bar" style="position: relative">
+                <div
+                  class="progress-sections"
+                  style="
+                    display: flex;
+                    height: 100%;
+                    border-radius: 10px;
+                    overflow: hidden;
+                  "
+                >
+                  <div
+                    class="achieved"
+                    style="width: 78%; background-color: #4387f5"
+                    data-tooltip="Bearbeitet und abgegeben: 78%"
+                  ></div>
+                  <div
+                    class="remaining"
+                    style="
+                      width: 7%;
+                      background-image: repeating-linear-gradient(
+                        45deg,
+                        #87aff7,
+                        #87aff7 10px,
+                        #b5cefb 10px,
+                        #b5cefb 20px
+                      );
+                    "
+                    data-tooltip="Abgegeben, aber noch nicht korrigiert: 7%"
+                  ></div>
+                  <div
+                    class="potential"
+                    style="
+                      width: 3%;
+                      background-image: repeating-linear-gradient(
+                        45deg,
+                        #cccccc,
+                        #cccccc 10px,
+                        #d5d5d5 10px,
+                        #d5d5d5 20px
+                      );
+                    "
+                    data-tooltip="Könnte abgegeben werden: 3%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="info-icon"
+              style="margin-left: 10px; position: relative"
+            >
+              <i class="fa-solid fa-circle-info" data-hover="true"></i>
+              <div class="custom-tooltip">
+                <div
+                  class="tooltip-header"
+                  style="
+                    text-align: center;
+                    font-weight: bold;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Fortschritt im Studium
+                </div>
+                <div class="progress-tooltip-container">
+                  <div class="progress-item">
+                    <div class="progress-bar">
+                      <div class="progress-sections">
+                        <div
+                          class="achieved"
+                          style="width: 55%"
+                          data-tooltip="Erreicht: 55% der Gesamtpunkte"
+                        ></div>
+                        <div
+                          class="remaining"
+                          style="width: 7%"
+                          data-tooltip="Offen: 7% noch unbewertet"
+                        ></div>
+                        <div
+                          class="potential"
+                          style="width: 7%"
+                          data-tooltip="Potenzial: max. 7% möglich"
+                        ></div>
+                      </div>
+                      <div class="marker left-label" style="left: 50%">
+                        <span class="marker-label bold">Zulassung</span>
+                      </div>
+                      <div class="marker right-label" style="left: 64%">
+                        <span class="marker-label">Prognose</span>
+                      </div>
+                    </div>
+                    <h5>
+                      Analysis II <span class="light-text">(WiSe 2024/25)</span>
+                    </h5>
+                  </div>
+                  <div class="progress-item">
+                    <div class="progress-bar">
+                      <div class="progress-sections">
+                        <div
+                          class="achieved"
+                          style="width: 30%"
+                          data-tooltip="Erreicht: 30% der Gesamtpunkte"
+                        ></div>
+                        <div
+                          class="remaining"
+                          style="width: 10%"
+                          data-tooltip="Offen: 10% noch unbewertet"
+                        ></div>
+                        <div
+                          class="potential"
+                          style="width: 18%"
+                          data-tooltip="Potenzial: max. 18% möglich"
+                        ></div>
+                      </div>
+                      <div class="marker right-label" style="left: 50%">
+                        <span class="marker-label bold">Zulassung</span>
+                      </div>
+                      <div class="marker left-label" style="left: 42%">
+                        <span class="marker-label">Prognose</span>
+                      </div>
+                    </div>
+                    <h5>
+                      Stochastik II
+                      <span class="light-text">(WiSe 2024/25)</span>
+                    </h5>
+                  </div>
+                  <div class="progress-item">
+                    <div class="progress-bar">
+                      <div class="progress-sections">
+                        <div
+                          class="achieved"
+                          style="width: 50%"
+                          data-tooltip="Erreicht: 50% der Gesamtpunkte"
+                        ></div>
+                        <div
+                          class="remaining"
+                          style="width: 5%"
+                          data-tooltip="Offen: 5% noch unbewertet"
+                        ></div>
+                        <div
+                          class="potential"
+                          style="width: 20%"
+                          data-tooltip="Potenzial: max. 20% möglich"
+                        ></div>
+                      </div>
+                      <div class="marker right-label" style="left: 79%">
+                        <span class="marker-label">Prognose</span>
+                      </div>
+                    </div>
+                    <h5>GMCI <span class="light-text">(WiSe 2024/25)</span></h5>
+                  </div>
+                </div>
+
+                <div class="progress-tooltip-legend">
+                  <div class="progress-tooltip-legend-item">
+                    <div class="legend-color achieved"></div>
+                    <span>Erreicht</span>
+                  </div>
+                  <div class="progress-tooltip-legend-item">
+                    <div class="legend-color remaining"></div>
+                    <span>Offen</span>
+                  </div>
+                  <div class="progress-tooltip-legend-item">
+                    <div class="legend-color potential"></div>
+                    <span>Möglich</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <span id="tutorProgressPercent">Korrektur-Fortschritt: 50%</span>
+          <span id="dashboardOverallProgressPercent"
+            >Gesamtfortschritt: 85%</span
+          >
+        </div>
+      </section>
+
+      <!-- Tutor-spezifischer Bereich mit Korrekturübersicht -->
+      <section
+        class="table-section"
+        id="tutorDashboardSection"
+        style="display: none; margin-top: 40px"
+      >
+        <h2 data-i18n="tutor_overview_title">Tutor-Übersicht</h2>
+        <table class="table-tasks">
+          <thead>
+            <tr>
+              <th>
+                <span data-i18n="tasks_to_correct"
+                  >Zu korrigierende Aufgabenblätter</span
+                >
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="submission_deadline">Abgabefrist</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="status_column">Status</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course-cell">
+                <span class="course-marker course-analysis-i"></span>
+                <span data-i18n="task_sheet_9_analysis_i"
+                  >Übungsblatt 9 (Analysis I)</span
+                >
+              </td>
+
+              <td data-i18n="due_date_05012025">05.01.2025</td>
+              <td data-i18n="status_completed">Abgeschlossen</td>
+            </tr>
+            <tr>
+              <td class="course-cell">
+                <span class="course-marker course-analysis-i"></span>
+                <span data-i18n="task_sheet_10_analysis_i"
+                  >Übungsblatt 10 (Analysis I)</span
+                >
+              </td>
+
+              <td data-i18n="due_date_25012025">25.01.2025</td>
+              <td>
+                <a
+                  href="pdf-editor.html"
+                  class="correction-link"
+                  data-i18n="correction_now"
+                  >Jetzt korrigieren</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div id="correction-progress-section" style="margin-top: 10px">
+          <div
+            class="progress-wrapper"
+            style="width: 300px; position: relative"
+          >
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1">
+                <div class="progress-bar" style="position: relative">
+                  <div
+                    class="progress-sections"
+                    style="
+                      display: flex;
+                      height: 100%;
+                      border-radius: 10px;
+                      overflow: hidden;
+                    "
+                  >
+                    <div
+                      class="achieved"
+                      style="width: 40%; background-color: #4387f5"
+                      data-tooltip="Bereits korrigiert: 40%"
+                    ></div>
+                    <div
+                      class="remaining"
+                      style="
+                        width: 13%;
+                        background-image: repeating-linear-gradient(
+                          45deg,
+                          #87aff7,
+                          #87aff7 10px,
+                          #b5cefb 10px,
+                          #b5cefb 20px
+                        );
+                      "
+                      data-tooltip="Korrigiert, aber Fragen offen: 13%"
+                    ></div>
+                    <div
+                      class="potential"
+                      style="
+                        width: 24%;
+                        background-image: repeating-linear-gradient(
+                          45deg,
+                          #cccccc,
+                          #cccccc 10px,
+                          #d5d5d5 10px,
+                          #d5d5d5 20px
+                        );
+                      "
+                      data-tooltip="Noch nicht korrigiert: 24%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="info-icon"
+                style="margin-left: 10px; position: relative"
+              >
+                <i class="fa-solid fa-circle-info" data-hover="true"></i>
+                <div class="custom-tooltip">
+                  <div
+                    class="tooltip-header"
+                    style="
+                      text-align: center;
+                      font-weight: bold;
+                      margin-bottom: 0.5rem;
+                    "
+                  >
+                    Korrekturfortschritt
+                  </div>
+                  <div class="progress-tooltip-container">
+                    <div class="progress-item">
+                      <div class="progress-bar">
+                        <div class="progress-sections">
+                          <div
+                            class="achieved"
+                            style="width: 50%"
+                            data-tooltip="50%"
+                          ></div>
+                          <div
+                            class="remaining"
+                            style="width: 15%"
+                            data-tooltip="15%"
+                          ></div>
+                          <div
+                            class="potential"
+                            style="width: 8%"
+                            data-tooltip="8%"
+                          ></div>
+                        </div>
+                      </div>
+                      <h5>
+                        Analysis I
+                        <span class="light-text">(WiSe 2024/25)</span>
+                      </h5>
+                    </div>
+                    <div class="progress-item">
+                      <div class="progress-bar">
+                        <div class="progress-sections">
+                          <div
+                            class="achieved"
+                            style="width: 30%"
+                            data-tooltip="30%"
+                          ></div>
+                          <div
+                            class="remaining"
+                            style="width: 10%"
+                            data-tooltip="10%"
+                          ></div>
+                          <div
+                            class="potential"
+                            style="width: 40%"
+                            data-tooltip="40%"
+                          ></div>
+                        </div>
+                      </div>
+                      <h5>
+                        Stochastik I
+                        <span class="light-text">(WiSe 2024/25)</span>
+                      </h5>
+                    </div>
+                  </div>
+
+                  <div class="progress-tooltip-legend">
+                    <div class="progress-tooltip-legend-item">
+                      <div class="legend-color achieved"></div>
+                      <span>Bereits korrigiert</span>
+                    </div>
+                    <div class="progress-tooltip-legend-item">
+                      <div class="legend-color remaining"></div>
+                      <span>Korrigiert, aber Fragen offen</span>
+                    </div>
+                    <div class="progress-tooltip-legend-item">
+                      <div class="legend-color potential"></div>
+                      <span>Noch nicht korrigiert</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <span id="tutorProgressPercent">Korrekturfortschritt: 53%</span>
+          </div>
+        </div>
+      </section>
+      <!-- Roboter-Avatar für visuelle Interaktion -->
+      <div class="robot-avatar">
+        <div id="staticRobot" class="static-robot"></div>
+
+        <div
+          id="animationRobot"
+          class="animation-robot"
+          style="display: none"
+        ></div>
       </div>
-  </section>
+    </main>
+    <!-- Seitenleiste für Benachrichtigungen und Kalender -->
+    <aside class="sidebar" id="sidebar">
+      <!-- Verschiedene Benachrichtigungstypen -->
 
+      <div
+        class="notification success"
+        id="notificationTutorCorrection"
+        style="display: none"
+        data-notification-id="tutorCorrection"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_tutor_correction">
+          Korrektur erfolgreich hochgeladen
+        </p>
+        <p class="notification-course">Analysis I</p>
+        <p class="notification-time"></p>
+      </div>
 
-    <div class="robot-avatar">
-      <img src="../assets/images/robot-avatar.png" alt="Avatar" />
-    </div>
-  </main>
+      <div
+        class="notification success"
+        id="notificationHA11"
+        style="display: none"
+        data-notification-id="ha11"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_ha11_uploaded">
+          Hausaufgabe 11 eingereicht
+        </p>
+        <p class="notification-course" data-i18n="course_gmci">GMCI</p>
+        <p class="notification-time"></p>
+      </div>
 
-  <aside class="sidebar">
-    <div class="notification success" id="notificationTutorCorrection" style="display: none;">
-      <p class="notification-title">Korrektur erfolgreich hochgeladen</p>
-      <p class="notification-time">Gerade eben</p>
-    </div>
-  
-    <div class="notification success" id="notificationHA11" style="display: none;">
-      <p class="notification-title">HA11 (GMCI) erfolgreich eingereicht</p>
-      <p class="notification-time">Gerade eben</p>
-    </div>
-  
-    <div class="notification">
-      <p class="notification-title">Neue Korrektur verfügbar</p>
-      <p class="notification-time">Vor drei Tagen</p>
-    </div>
-    <div class="sidebar-content" id="calendarContainer">
-    </div>
-  </aside>
-  
-</body>
+      <div
+        class="notification"
+        id="notificationNewCorrection"
+        style="display: none"
+        data-notification-id="newCorrection"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_new_correction">
+          Neue Korrektur verfügbar
+        </p>
+        <p class="notification-course" data-i18n="course_stochastics_ii">
+          Stochastik II
+        </p>
+        <p class="notification-time" data-i18n="three_days_ago">
+          Vor drei Tagen
+        </p>
+      </div>
+      <!-- Kalendercontainer -->
+      <div class="sidebar-content" id="calendarContainer"></div>
+    </aside>
+  </body>
 </html>

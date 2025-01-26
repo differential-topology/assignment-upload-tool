@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Horizontaler Balken -->
+  <rect x="0" y="0" width="100" height="30" fill="#666"/>
+
+  <!-- Vertikaler Balken -->
+  <rect x="70" y="0" width="30" height="100" fill="#666"/>
+
+  <!-- Diagonaler Balken -->
+  <path d="M0,115 L115,0 L85,0 L0,85 Z" fill="#666"/>
+</svg>

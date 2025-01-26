@@ -1,0 +1,70 @@
+/*
+Diese Datei definiert die Stile für Info-Icons mit Tooltips, die bei Hover zusätzliche Informationen anzeigen.
+*/
+/* Info-Icon Container mit Hover-Effekten */
+.info-icon {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 59px;
+  height: 38px;
+}
+
+.info-icon i {
+  font-size: 1.2rem;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.info-icon i:hover {
+  color: #4287f5;
+  transform: scale(1.2);
+}
+
+/* Tooltip-Container mit Pfeil-Indikator */
+.custom-tooltip {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  z-index: 10;
+  width: 280px;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: left;
+  color: #ddd;
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%);
+}
+
+.custom-tooltip::before {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent;
+  content: "";
+  transform: translateX(-50%);
+}
+
+.info-icon:hover .custom-tooltip {
+  display: block;
+}
+
+/* Spezielle Positionierung für Tooltips im Korrektur-Fortschrittsbereich */
+
+#correction-progress-section .info-icon .custom-tooltip {
+  top: auto;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+}
+#correction-progress-section .info-icon .custom-tooltip::before {
+  top: 100%;
+  bottom: auto;
+  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+  transform: translateX(-50%);
+}

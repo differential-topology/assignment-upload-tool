@@ -1,0 +1,101 @@
+/*
+Diese Datei definiert die Stile für das Benachrichtigungssystem inkl. Hover-Effekte und Statusindikatoren.
+*/
+
+/* Grundlegende Struktur der Benachrichtigungen */
+.notification {
+  display: flex;
+  position: relative;
+  padding: 12px 12px 12px 25px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #ffffff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+/* Hover-Effekte für bessere Interaktivität */
+.notification:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+/* Farbiger Statusindikator am linken Rand */
+.notification::before {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 10px;
+  width: 5px;
+  border-radius: 6px;
+  background-color: #4287f5;
+  content: "";
+}
+/* Spezifische Statusfarben für verschiedene Benachrichtigungstypen */
+
+#notificationTutorCorrection.notification.success::before {
+  background-color: #4da352;
+}
+
+#notificationHA11.notification.success::before {
+  background-color: #f5a142;
+}
+/* Textkomponenten der Benachrichtigung */
+.notification-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.notification-time {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 0;
+}
+
+/* Schließen-Button mit Hover-Verhalten */
+.notification-close {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #999;
+  cursor: pointer;
+}
+
+.notification:hover .notification-close {
+  display: block;
+}
+
+.notification-close:hover {
+  color: #333;
+}
+/* Zustände für die Sichtbarkeit von Benachrichtigungen */
+.hide-notifications .notification,
+.hide-notifications .notification-badge,
+.hide-notifications .no-notifications-placeholder {
+  visibility: hidden !important;
+}
+/* Platzhalter wenn keine Benachrichtigungen vorhanden sind */
+
+.no-notifications-placeholder {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-style: italic;
+  text-align: center;
+  color: #999;
+}
+/* Initialer versteckter Zustand */
+
+.hide-notifications-initial .notification,
+.hide-notifications-initial .notification-badge {
+  display: none !important;
+}
+
+/* Kursbezeichnung innerhalb der Benachrichtigung */
+.notification-course {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}

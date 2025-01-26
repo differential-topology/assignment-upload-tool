@@ -1,0 +1,8 @@
+/*
+Diese Datei setzt die Standardwerte aller HTML-Elemente zurück, um ein konsistentes Erscheinungsbild über verschiedene Browser hinweg zu gewährleisten.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

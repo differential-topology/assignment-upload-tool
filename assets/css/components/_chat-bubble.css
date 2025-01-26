@@ -1,0 +1,210 @@
+/*
+Diese Datei definiert die Stile für eine Chat-Bubble mit Nutzer- und Bot-Interaktion, inklusive Nachrichtenverlauf und Eingabebereich.
+*/
+
+/* Hauptcontainer der Chat-Bubble */
+.robot-chat-bubble {
+  display: flex;
+  position: fixed;
+  right: 70px;
+  bottom: 80px;
+
+  z-index: 2000;
+  width: 350px;
+  max-height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+}
+.chat-close {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  color: #999;
+  cursor: pointer;
+}
+.chat-close:hover {
+  color: #333;
+}
+
+/* Nachrichtenbereich mit Scrollfunktion */
+#chatMessages {
+  flex: 1 1 auto;
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 7px 7px 0 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+/* Styling für Nutzernachrichten */
+.user-message {
+  display: flex;
+  align-items: flex-end;
+  margin: 0 1rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+.user-message img {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.user-chat-bubble {
+  align-self: center;
+  max-width: 280px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  background-color: #cbd1de;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+/* Eingabebereich am unteren Rand */
+.chat-input {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 7px 7px;
+  box-sizing: border-box;
+  background-color: #a4a4ae;
+}
+.chat-input textarea {
+  flex: 1;
+  min-height: 20px;
+  max-width: 350px;
+  max-height: 150px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  overflow-y: auto;
+  resize: none;
+}
+/* Sende-Button mit Hover-Effekten */
+.btn-send {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding: 4px;
+  border: none;
+  border-radius: 0;
+  color: #4a4a4a;
+  background-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.btn-send::before {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  z-index: -1;
+  border-radius: 6px;
+  background: transparent;
+  content: "";
+}
+.btn-send:hover::before {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.btn-send:active::before {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.btn-send i {
+  font-size: 18px;
+  color: #4a4a4a;
+  transition: color 0.2s ease;
+}
+.btn-send:hover i {
+  color: #333333;
+}
+.btn-send:active i {
+  color: #1a1a1a;
+}
+/* Deaktivierter Zustand des Sende-Buttons */
+.btn-send.disabled,
+.btn-send[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-send.disabled i,
+.btn-send[disabled] i {
+  color: #7a7a7a;
+  transition: none;
+}
+
+.btn-send.disabled::before,
+.btn-send[disabled]::before {
+  background: transparent;
+}
+
+.default-text-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 30px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.invisible-emoji {
+  display: inline-block;
+  opacity: 0;
+  vertical-align: middle;
+}
+.visible-emoji {
+  display: inline-block;
+  opacity: 1;
+  vertical-align: middle;
+}
+.bot-message {
+  padding: 0 1rem;
+  font-size: 0.9rem;
+}
+
+.chat-input textarea {
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+}
+
+.chat-input textarea::-webkit-input-placeholder {
+  font-size: inherit;
+  font-family: inherit;
+  color: #888;
+  opacity: 1;
+}
+
+.chat-input textarea:-ms-input-placeholder {
+  font-size: inherit;
+  font-family: inherit;
+  color: #888;
+  opacity: 1;
+}
+
+.chat-input textarea::-ms-input-placeholder {
+  font-size: inherit;
+  font-family: inherit;
+  color: #888;
+  opacity: 1;
+}
+
+.chat-input textarea::placeholder {
+  font-size: inherit;
+  font-family: inherit;
+  color: #888;
+  opacity: 1;
+}

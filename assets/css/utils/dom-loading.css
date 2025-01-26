@@ -1,0 +1,22 @@
+/*
+Diese Datei definiert die Stile für das initiale DOM-Loading, um Flackern und unerwünschte Zustände zu vermeiden.
+*/
+
+/* Elemente während des Ladens ausblenden */
+body.dom-loading .robot-chat-bubble,
+body.dom-loading .notification,
+body.dom-loading .notification-badge,
+body.dom-loading #calendarContainer {
+  visibility: hidden !important;
+}
+
+/* Initial versteckte Elemente */
+#cancelIcon {
+  display: none;
+}
+
+/* Fortschrittsanzeige während des Ladens ausblenden */
+body.dom-loading .progress-wrapper {
+  opacity: 0 !important;
+  transition: none !important;
+}

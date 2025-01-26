@@ -1,143 +1,244 @@
 <!DOCTYPE html>
-<!-- 
-  Datei: upload-assignment.html
-  Zweck: Upload-Seite für eine spezifische Hausaufgabe.
+<!--
+Diese Datei stellt die Hausaufgaben-Upload-Seite dar und ermöglicht das Hochladen, 
+Verwalten und Einreichen von Aufgaben mit Fortschrittsanzeige und Benachrichtigungssystem.
 -->
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment Upload Tool - Hausaufgabe hochladen</title>
-  <link rel="stylesheet" href="../assets/css/styles.css">
-  <link 
-    rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <script src="../assets/js/scripts.js" defer></script>
-</head>
-<body>
-  <header class="main-header">
-    <div class="hamburger-menu" id="hamburgerMenu">
-      <i class="fa fa-bars"></i>
-    </div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
-        <li><a href="courses.html" data-nav="courses">Kurse</a></li>
-        <li><a href="groups.html" data-nav="groups">Gruppen</a></li>
-        <li><a href="settings.html" data-nav="settings">Einstellungen</a></li>
-      </ul>
-    </nav>
-    <div class="profile-icon">
-      <img 
-        src="../assets/images/profile-picture.png" 
-        alt="Profil" 
-        id="avatarIcon" 
-      />
-      <span class="notification-badge">1</span>
-      <div class="avatar-popup" id="avatarPopup">
+  <head>
+    <!-- Grundlegende Meta-Tags und externe Ressourcen -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="title_assignment_upload">
+      Assignment Upload Tool - Hausaufgabe hochladen
+    </title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <script src="../assets/js/main.js" type="module"></script>
+  </head>
+  <body>
+    <!-- Hauptnavigation mit Hamburger-Menü und Profilbereich -->
+    <header class="main-header">
+      <div class="hamburger-menu" id="hamburgerMenu">
+        <i class="fa fa-bars"></i>
+      </div>
+      <nav class="main-nav">
         <ul>
-          <li><a href="#" id="editProfile">Profil bearbeiten</a></li>
-          <li><a href="settings.html">Einstellungen</a></li>
-          <li><a href="#" id="help">Hilfe</a></li>
-          <li><a href="#" id="logoutButton">Abmelden</a></li>
+          <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
+          <li><a href="courses.html" data-nav="courses">Kurse</a></li>
+          <li><a href="groups.html" data-nav="groups">Gruppen</a></li>
+          <li><a href="settings.html" data-nav="settings">Einstellungen</a></li>
         </ul>
-      </div>
-    </div>
-  </header>
-
-  <main class="main-content">
-    <h1>Hausaufgabe 11</h1>
-    <h2 style="font-size: 1.2em; color: gray; margin-top: -10px;">Grundlagen der MCI</h2>
-    <section class="upload-section">
-      <div class="upload-area" id="uploadArea">
-        <p>Hier Datei(en) per Drag &amp; Drop ablegen oder klicken, um hochzuladen</p>
-        <span class="upload-icon"><i class="fa-solid fa-upload"></i></span>
-      </div>
-
-      <table 
-        class="uploaded-files" 
-        id="fileTable" 
-        style="display: none;"
-      >
-        <thead>
-          <tr>
-            <th>Dateiname</th>
-            <th>Größe</th>
-            <th>Status</th>
-            <th>Aktion</th>
-          </tr>
-        </thead>
-        <tbody id="fileList"></tbody>
-      </table>
-
-      <div class="submit-container">
-        <button 
-          class="btn btn-primary" 
-          id="submitButton" 
-          style="display: none;"
-        >
-          Abgabe einreichen
-        </button>
-        <div class="progress-wrapper">
-          <div 
-            class="progress-bar" 
-            id="uploadProgress" 
-            style="display: none;"
-          >
-            <div 
-              class="progress-fill" 
-              id="progressFill"
-            ></div>
-          </div>
-          <span 
-            id="progressPercentage" 
-            style="display: none;"
-          >
-            0%
-          </span>
+      </nav>
+      <div class="profile-icon">
+        <img
+          src="../assets/images/profile-picture.png"
+          alt="Profil"
+          id="avatarIcon"
+          data-i18n-alt="profile_avatar_alt"
+        />
+        <span class="notification-badge" style="display: none"> </span>
+        <div class="avatar-popup" id="avatarPopup">
+          <ul>
+            <li>
+              <a href="#" id="editProfile" data-i18n="edit_profile"
+                >Profil bearbeiten</a
+              >
+            </li>
+            <li>
+              <a href="settings.html" data-i18n="settings">Einstellungen</a>
+            </li>
+            <li><a href="#" id="help" data-i18n="help">Hilfe</a></li>
+            <li>
+              <a href="#" id="logoutButton" data-i18n="logout">Abmelden</a>
+            </li>
+          </ul>
         </div>
       </div>
-
-      <p 
-        id="progressPercentageBottom" 
-        style="display: none; text-align: center; margin-top: 5px;"
+    </header>
+    <!-- Hauptbereich mit Upload-Funktionalität -->
+    <main class="main-content">
+      <h1 data-i18n="header_homework_11">Hausaufgabe 11</h1>
+      <h2
+        data-i18n="subtitle_gmci"
+        style="font-size: 1.2em; color: gray; margin-top: -10px"
       >
-        0%
+        GMCI
+      </h2>
+      <!-- Upload-Bereich mit Dateihandling -->
+      <section class="upload-section">
+        <p
+          data-i18n="upload_allowed_filetypes"
+          style="font-size: 0.9em; color: #555; margin-bottom: 10px"
+        >
+          Erlaubte Dateitypen: .pdf, .docx, .txt &nbsp;&nbsp;|&nbsp;&nbsp;
+          Maximale Dateigröße: 5 MB
+        </p>
+        <p
+          data-i18n="upload_hint"
+          style="font-size: 0.9em; color: #555; margin-bottom: 10px"
+        >
+          Hinweis: Sie können Ihre Abgabe bis zum Ablauf der Frist zurückziehen
+          und durch eine neue ersetzen.
+        </p>
+        <!-- Drag & Drop Zone -->
+        <div class="upload-area" id="uploadArea">
+          <p data-i18n="upload_prompt">
+            Hier Datei(en) per Drag &amp; Drop ablegen oder klicken, um
+            hochzuladen
+          </p>
+          <span class="upload-icon"><i class="fa-solid fa-upload"></i></span>
+        </div>
+
+        <!-- Dateiübersichtstabelle -->
+        <table class="uploaded-files" id="fileTable" style="display: none">
+          <thead>
+            <tr>
+              <th>
+                <span data-i18n="table_filename">Dateiname</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="table_size">Größe</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="table_status">Status</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="table_action">Aktion</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="fileList"></tbody>
+        </table>
+        <!-- Upload-Steuerung und Fortschrittsanzeige -->
+        <div class="submit-container">
+          <button
+            class="btn btn-primary"
+            id="submitButton"
+            style="display: none"
+            data-i18n="submit_assignment"
+          >
+            Abgabe einreichen
+          </button>
+          <div class="spacer"></div>
+          <i
+            id="cancelIcon"
+            class="fa-solid fa-circle-stop cancel-icon"
+            title="Upload abbrechen"
+            data-i18n-title="cancel_upload"
+          ></i>
+          <div class="progress-wrapper">
+            <div class="progress-bar" id="uploadProgress" style="display: none">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span id="progressPercentage" style="display: none"> 0% </span>
+          </div>
+        </div>
+
+        <p
+          id="progressPercentageBottom"
+          style="display: none; text-align: center; margin-top: 5px"
+        >
+          0%
+        </p>
+      </section>
+      <!-- Roboter-Avatar für visuelle Interaktion -->
+      <div class="robot-avatar">
+        <div id="staticRobot" class="static-robot"></div>
+
+        <div
+          id="animationRobot"
+          class="animation-robot"
+          style="display: none"
+        ></div>
+      </div>
+
+      <!-- Deadline-Informationen -->
+      <p style="text-align: left; margin-top: 5px">
+        <strong data-i18n="submission_deadline_label">Abgabedatum:</strong>
+        <span data-i18n="submission_deadline_time">29.01.2025, 23:59 Uhr</span>
       </p>
-    </section>
+      <p
+        id="remainingTime"
+        style="text-align: left; margin-top: 5px; font-size: 0.9em; color: gray"
+      ></p>
+    </main>
+    <!-- Seitenleiste für Benachrichtigungen und Kalender -->
+    <aside class="sidebar" id="sidebar">
+      <!-- Verschiedene Benachrichtigungstypen -->
 
-    <div class="robot-avatar">
-      <img 
-        src="../assets/images/robot-avatar.png" 
-        alt="Avatar"
+      <div
+        class="notification success"
+        id="notificationTutorCorrection"
+        style="display: none"
+        data-notification-id="tutorCorrection"
+        data-dynamic-time="true"
       >
-    </div>
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_tutor_correction">
+          Korrektur erfolgreich hochgeladen
+        </p>
+        <p class="notification-course">Analysis I</p>
+        <p class="notification-time"></p>
+      </div>
 
-    <p style="text-align: left; margin-top: 5px;">
-      <strong>Abgabedatum:</strong> 13.01.2025
-    </p>
-  </main>
+      <div
+        class="notification success"
+        id="notificationHA11"
+        style="display: none"
+        data-notification-id="ha11"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_ha11_uploaded">
+          Hausaufgabe 11 eingereicht
+        </p>
+        <p class="notification-course" data-i18n="course_gmci">GMCI</p>
+        <p class="notification-time"></p>
+      </div>
 
-  <aside class="sidebar">
-   
-    <div class="notification success" id="notificationTutorCorrection" style="display: none;">
-      <p class="notification-title">Korrektur erfolgreich hochgeladen</p>
-      <p class="notification-time">Gerade eben</p>
-    </div>
-
-  
-    <div class="notification success" id="notificationHA11" style="display: none;">
-      <p class="notification-title">HA11 (GMCI) erfolgreich eingereicht</p>
-      <p class="notification-time">Gerade eben</p>
-    </div>
-  
-    <div class="notification">
-      <p class="notification-title">Neue Korrektur verfügbar</p>
-      <p class="notification-time">Vor drei Tagen</p>
-    </div>
-    <div class="sidebar-content" id="calendarContainer">
-    </div>
-  </aside>
-  
-</body>
+      <div
+        class="notification"
+        id="notificationNewCorrection"
+        style="display: none"
+        data-notification-id="newCorrection"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_new_correction">
+          Neue Korrektur verfügbar
+        </p>
+        <p class="notification-course" data-i18n="course_stochastics_ii">
+          Stochastik II
+        </p>
+        <p class="notification-time" data-i18n="three_days_ago">
+          Vor drei Tagen
+        </p>
+      </div>
+      <!-- Kalendercontainer -->
+      <div class="sidebar-content" id="calendarContainer"></div>
+    </aside>
+  </body>
 </html>

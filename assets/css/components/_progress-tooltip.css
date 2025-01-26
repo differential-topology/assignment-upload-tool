@@ -1,0 +1,223 @@
+/*
+Diese Datei definiert die Stile für einen interaktiven Fortschrittsbalken mit Tooltips, Markierungen und einer Legende.
+*/
+
+/* Basis-Layout für den Fortschrittsbereich */
+.progress-tooltip-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progress-item h5 {
+  color: #fff;
+}
+
+.light-text {
+  font-weight: normal;
+}
+/* Fortschrittsanzeige mit verschiedenen Zuständen */
+.progress-item .progress-bar {
+  position: relative;
+  height: 15px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  overflow: visible;
+}
+/* Verschiedene Zustände des Fortschritts (erreicht, verbleibend, potenziell) */
+.progress-item .progress-sections {
+  display: flex;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.progress-item .progress-sections .achieved {
+  background-color: #4387f5;
+  transition: brightness 0.3s;
+  cursor: pointer;
+}
+.progress-item .progress-sections .remaining {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #87aff7,
+    #87aff7 10px,
+    #b5cefb 10px,
+    #b5cefb 20px
+  );
+  transition: brightness 0.3s;
+  cursor: pointer;
+}
+.progress-item .progress-sections .potential {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #cccccc,
+    #cccccc 10px,
+    #d5d5d5 10px,
+    #d5d5d5 20px
+  );
+  transition: brightness 0.3s;
+  cursor: pointer;
+}
+/* Marker und Beschriftungen auf der Fortschrittsleiste */
+.progress-item .progress-bar .marker {
+  position: absolute;
+  top: -5px;
+  z-index: 11;
+  width: 2px;
+  height: 20px;
+  background-color: #fff;
+}
+.progress-item .progress-bar .marker::before {
+  position: absolute;
+  top: -4px;
+  left: -1.5px;
+  z-index: 11;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  content: "";
+}
+
+.progress-item .progress-bar .marker .marker-label {
+  position: absolute;
+  top: -10px;
+  z-index: 11;
+  font-size: 0.6rem;
+  white-space: nowrap;
+  color: #fff;
+}
+.progress-item .progress-bar .marker.left-label .marker-label {
+  right: 8px;
+  transform: translateX(0);
+}
+.progress-item .progress-bar .marker.right-label .marker-label {
+  left: 8px;
+  transform: translateX(0);
+}
+.progress-item .progress-bar .marker-label.bold {
+  font-weight: bold;
+}
+
+.progress-tooltip-container {
+  margin-top: 2rem;
+}
+
+/* Legende unterhalb der Fortschrittsleiste */
+
+.progress-tooltip-legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-tooltip-legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #fff;
+  gap: 0.5rem;
+}
+
+.progress-tooltip-legend-item .legend-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+}
+
+.progress-tooltip-legend-item .legend-color.achieved {
+  background-color: #4387f5;
+}
+
+.progress-tooltip-legend-item .legend-color.remaining {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #87aff7,
+    #87aff7 10px,
+    #b5cefb 10px,
+    #b5cefb 20px
+  );
+}
+
+.progress-tooltip-legend-item .legend-color.potential {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #cccccc,
+    #cccccc 10px,
+    #d5d5d5 10px,
+    #d5d5d5 20px
+  );
+}
+
+/* Tooltip-System für interaktives Feedback */
+
+[data-tooltip] {
+  position: relative;
+  font-family: "Segoe UI", Arial, sans-serif;
+  cursor: pointer;
+}
+
+[data-tooltip]::before {
+  visibility: hidden;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  z-index: 1000;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  content: attr(data-tooltip);
+  transform: translateX(-50%);
+}
+
+[data-tooltip]::after {
+  visibility: hidden;
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  z-index: 1000;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  content: "";
+  transform: translateX(-50%);
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.achieved:hover,
+.remaining:hover,
+.potential:hover {
+  filter: brightness(1.1);
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 1000;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.section-hover {
+  filter: brightness(1.1);
+}

@@ -1,0 +1,29 @@
+/*
+Diese Datei definiert die Stile für eine Fortschrittsanzeige mit Füllbalken und Prozentanzeige.
+*/
+
+/* Grundstruktur der Fortschrittsleiste */
+.progress-bar {
+  width: 100%;
+  flex-grow: 1;
+  height: 20px;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  background-color: #ddd;
+  overflow: hidden;
+}
+
+/* Gefüllter Bereich der Fortschrittsleiste */
+.progress-fill {
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background-color: #4287f5;
+}
+
+/* Prozentuale Anzeige */
+
+#progressPercentage {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  color: #333;
+}

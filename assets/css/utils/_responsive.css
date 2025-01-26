@@ -1,0 +1,68 @@
+/*
+Diese Datei definiert die responsiven Anpassungen für verschiedene Bildschirmgrößen (Mobile-First-Ansatz).
+*/
+/* Anpassungen für Mobilgeräte */
+@media (max-width: 480px) {
+  .main-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .profile-icon {
+    margin-top: 1rem;
+  }
+  .custom-tooltip {
+    left: 5%;
+    width: 90%;
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .editor-toolbar .btn-secondary {
+    flex: 1 1 40px;
+    padding: 0.3rem;
+  }
+}
+
+/* Layout-Anpassungen für Tablets */
+
+@media (max-width: 768px) {
+  .avatar-popup {
+    right: 10px;
+    width: 150px;
+  }
+  .calendar-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+  .main-nav ul {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    padding: 1rem;
+    background-color: #eee;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .main-nav ul.show {
+    display: flex;
+  }
+}
+
+/* Sidebar-Anpassung für kleine Desktop-Ansichten */
+
+@media (max-width: 992px) {
+  .sidebar {
+    display: none !important;
+  }
+  .main-content {
+    margin-right: 20px !important;
+  }
+}

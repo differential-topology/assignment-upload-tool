@@ -1,0 +1,118 @@
+/*
+Diese Datei definiert die Stile für einen interaktiven Kalender mit Event-Anzeige und Popup-Funktionalität.
+*/
+/* Basis-Container für den Kalender */
+.calendar {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: visible;
+  margin-top: 1rem;
+}
+/* Header-Bereich mit Monatsnavigation */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  color: #fff;
+  background-color: #4287f5;
+
+  will-change: transform, opacity; /* Performance-Optimierungen für flüssige Animationen */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+/* Navigationsbuttons und Monatsanzeige */
+.calendar-header .prev-month,
+.calendar-header .next-month {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.calendar-header .month-year {
+  font-weight: bold;
+}
+/* Kalender-Tabellenlayout */
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.calendar-table th,
+.calendar-table td {
+  position: relative;
+  width: 14.28%;
+  min-height: 60px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: top;
+}
+.calendar-table th {
+  background-color: #f0f0f0;
+}
+/* Hervorhebung des aktuellen Tages */
+.calendar-table td.today {
+  position: relative;
+  background: none;
+}
+
+.calendar-table td.today::before {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  z-index: 0;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  background-color: #e2eefe;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+.calendar-table td.today span.day-number {
+  position: relative;
+  z-index: 1;
+}
+.calendar-table td:not(:empty):hover {
+  background-color: #e2eefe;
+  cursor: pointer;
+}
+
+.event-dot.past-event {
+  background-color: gray;
+}
+/* Event-Markierungen und Interaktionen */
+.event-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  margin: 3px auto 0;
+  border-radius: 50%;
+  background-color: blue;
+}
+.event-dot.no-event {
+  background-color: transparent;
+}
+
+/* Event-Popup */
+.event-popup {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.calendar-table td.event-day:hover .event-popup {
+  display: block;
+}
+
+#calendarContainer {
+  position: relative;
+  min-height: 200px;
+}

@@ -1,0 +1,17 @@
+/*
+Diese Datei definiert die Stile für den Hauptinhaltsbereich, einschließlich Abstände und Überschriften.
+*/
+
+.main-content {
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-left: 20px;
+  margin-top: 80px;
+  margin-right: 340px;
+}
+.main-content h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}

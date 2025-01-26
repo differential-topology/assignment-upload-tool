@@ -1,0 +1,94 @@
+/*
+Diese Datei definiert die Stile für die Login-Seite, einschließlich Header, Formular und Footer.
+*/
+
+.header-login {
+  width: 100%;
+  padding: 1rem;
+  text-align: right;
+}
+/* App-Titel und Logo */
+.app-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.app-title {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  text-align: left;
+  flex-direction: column;
+  margin: 1rem 0;
+  color: #666;
+}
+
+.app-title-line {
+  display: block;
+}
+.app-logo {
+  align-self: center;
+  width: 50px;
+  height: auto;
+}
+/* Layout der Login-Seite */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.login-box {
+  padding: 2rem 0;
+  border-radius: 8px;
+  color: #333;
+  background-color: #f0f0f0;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form .btn-primary {
+  margin-top: 1.5rem;
+}
+.login-links {
+  padding: 0 3rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+.forgot-password {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.username-input-wrapper {
+  display: flex;
+  align-items: stretch;
+  padding-left: 3rem;
+  padding-top: 1rem;
+}
+
+.button-container {
+  width: 100%;
+  padding: 0 3rem;
+  box-sizing: border-box;
+}
+
+.button-container .btn-primary {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 0.9rem;
+}
+
+.footer-login {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}

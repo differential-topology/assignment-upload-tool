@@ -1,0 +1,84 @@
+/*
+Diese Datei definiert die Stile für den Datei-Upload-Bereich, inkl. Drag & Drop Zone und Dateiliste.
+*/
+
+.upload-section {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.upload-area {
+  padding: 20px;
+  border: 2px dashed #ccc;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.upload-area:hover {
+  background-color: #f9f9f9;
+}
+.upload-icon {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #888;
+  padding-top: 10px;
+}
+
+.uploaded-files {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.uploaded-files th,
+.uploaded-files td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+.uploaded-files th {
+  background-color: #f4f4f4;
+}
+.uploaded-files .action a {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+
+.submit-container {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.submit-container .progress-wrapper {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  max-width: 200px;
+  gap: 10px;
+}
+
+.cancel-icon {
+  display: none;
+  font-size: 1.5rem;
+  color: gray;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+.cancel-icon:hover {
+  color: #666;
+}
+.cancel-icon:active {
+  color: #444;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+#submitButton {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

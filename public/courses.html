@@ -1,125 +1,256 @@
 <!DOCTYPE html>
+
 <!--
-Datei: courses.html
-Zweck: Übersicht der Kurse mit Sortier- und Suchmöglichkeiten.
-
-TODO:
-- [Optional] Sortierfunktionalität für die Tabellen implementieren (ähnlich wie in anderen Screens).
-- [Optional] Kurse anklickbar machen.
-- [Optional] Suchfunktion für Kurse simulieren.
+Diese Datei enthält die Kursübersichtsseite des Assignment Upload Tools. Sie zeigt eine tabellarische Auflistung aller Kurse.
 -->
+
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <title>Assignment Upload Tool - Kurse</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link 
-    rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
-  />
-  <script src="../assets/js/scripts.js" defer></script>
-</head>
-<body>
-  <header class="main-header">
-    <div class="hamburger-menu" id="hamburgerMenu">
-      <i class="fa fa-bars"></i>
-    </div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
-        <li><a href="courses.html" data-nav="courses">Kurse</a></li>
-        <li><a href="groups.html" data-nav="groups">Gruppen</a></li>
-        <li><a href="settings.html" data-nav="settings">Einstellungen</a></li>
-      </ul>
-    </nav>
-    <div class="profile-icon">
-      <img 
-        src="../assets/images/profile-picture.png" 
-        alt="Profil" 
-        id="avatarIcon" 
-      />
-      <span class="notification-badge">1</span>
-      <div class="avatar-popup" id="avatarPopup">
+  <head>
+    <!-- Grundlegende Meta-Tags und externe Ressourcen -->
+    <meta charset="UTF-8" />
+    <title data-i18n="title_courses">Assignment Upload Tool - Kurse</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <script src="../assets/js/main.js" type="module"></script>
+  </head>
+  <body>
+    <!-- Hauptnavigation mit Hamburger-Menü und Profilbereich -->
+    <header class="main-header">
+      <div class="hamburger-menu" id="hamburgerMenu">
+        <i class="fa fa-bars"></i>
+      </div>
+      <nav class="main-nav">
         <ul>
-          <li><a href="#" id="editProfile">Profil bearbeiten</a></li>
-          <li><a href="settings.html">Einstellungen</a></li>
-          <li><a href="#" id="help">Hilfe</a></li>
-          <li><a href="#" id="logoutButton">Abmelden</a></li>
+          <li>
+            <a
+              href="dashboard.html"
+              data-nav="dashboard"
+              data-i18n="nav_dashboard"
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="courses.html" data-nav="courses" data-i18n="nav_courses"
+              >Kurse</a
+            >
+          </li>
+          <li>
+            <a href="groups.html" data-nav="groups" data-i18n="nav_groups"
+              >Gruppen</a
+            >
+          </li>
+          <li>
+            <a href="settings.html" data-nav="settings" data-i18n="nav_settings"
+              >Einstellungen</a
+            >
+          </li>
         </ul>
-      </div>
-    </div>
-  </header>
-
-  <main class="main-content">
-    <h1>Meine Kurse</h1>
-    <section class="table-section">
-      <table class="table-courses">
-        <thead>
-          <tr>
-            <th>Kurs <button class="sort-btn">⇅</button></th>
-            <th>Dozent <button class="sort-btn">⇅</button></th>
-            <th>Nächste Abgabe <button class="sort-btn">⇅</button></th>
-            <th>Fortschritt <button class="sort-btn">⇅</button></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>GMCI</td>
-            <td>Prof. Dr. Rohs</td>
-            <td>15.12.2024</td>
-            <td>70%</td>
-          </tr>
-          <tr>
-            <td>Analysis II</td>
-            <td>Prof. Dr. Lankeit</td>
-            <td>18.12.2024</td>
-            <td>85%</td>
-          </tr>
-          <tr>
-            <td>Stochastik II</td>
-            <td>Dr. Meyer</td>
-            <td>20.12.2024</td>
-            <td>75%</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="table-footer">
-        <label for="course-search">Weitere Kurse</label>
-        <input 
-          type="text" 
-          id="course-search" 
-          placeholder="Nach Kursen suchen..." 
+      </nav>
+      <div class="profile-icon">
+        <img
+          src="../assets/images/profile-picture.png"
+          alt="Profil"
+          id="avatarIcon"
+          data-i18n-alt="profile_avatar_alt"
         />
+        <span class="notification-badge" style="display: none"> </span>
+        <div class="avatar-popup" id="avatarPopup">
+          <ul>
+            <li>
+              <a href="#" id="editProfile" data-i18n="edit_profile"
+                >Profil bearbeiten</a
+              >
+            </li>
+            <li>
+              <a href="settings.html" data-i18n="settings">Einstellungen</a>
+            </li>
+            <li><a href="#" id="help" data-i18n="help">Hilfe</a></li>
+            <li>
+              <a href="#" id="logoutButton" data-i18n="logout">Abmelden</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </header>
+    <!-- Hauptinhalt mit Kurstabelle -->
+    <main class="main-content">
+      <h1 data-i18n="course_overview_title">Meine Kurse</h1>
+      <!-- Tabellarische Kursübersicht mit (sortierbaren) Spalten -->
+      <section class="table-section">
+        <table class="table-courses">
+          <thead>
+            <tr>
+              <th>
+                <span data-i18n="course_column">Kurs</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="instructor_column">Dozent</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="next_deadline_column">Nächste Abgabe</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+              <th>
+                <span data-i18n="progress_column">Fortschritt</span>
+                <button class="sort-btn">
+                  <i class="fa-solid fa-sort"></i>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course-cell">
+                <span class="course-marker course-gmci"></span>
+                <span>
+                  <a
+                    href="#"
+                    class="not-implemented-link"
+                    data-i18n="course_gmci"
+                  >
+                    GMCI
+                  </a>
+                </span>
+              </td>
 
-    <div class="robot-avatar">
-      <img 
-        src="../assets/images/robot-avatar.png" 
-        alt="Avatar" 
-      />
-    </div>
-  </main>
+              <td>Prof. Dr. Rohs</td>
+              <td data-i18n="due_date_29012025">29.01.2025</td>
+              <td>70%</td>
+            </tr>
+            <tr>
+              <td class="course-cell">
+                <span class="course-marker course-analysis-ii"></span>
+                <span>
+                  <a
+                    href="#"
+                    class="not-implemented-link"
+                    data-i18n="course_analysis_ii"
+                  >
+                    Analysis II
+                  </a>
+                </span>
+              </td>
 
-  <aside class="sidebar">
-    <div class="notification success" id="notificationTutorCorrection" style="display: none;">
-      <p class="notification-title">Korrektur erfolgreich hochgeladen</p>
-      <p class="notification-time">Gerade eben</p>
-    </div>
-  
-    <div class="notification success" id="notificationHA11" style="display: none;">
-      <p class="notification-title">HA11 (GMCI) erfolgreich eingereicht</p>
-      <p class="notification-time">Gerade eben</p>
-    </div>
-  
-    <div class="notification">
-      <p class="notification-title">Neue Korrektur verfügbar</p>
-      <p class="notification-time">Vor drei Tagen</p>
-    </div>
-    <div class="sidebar-content" id="calendarContainer">
-    </div>
-  </aside>
-  
-</body>
+              <td>Prof. Dr. Lankeit</td>
+              <td data-i18n="due_date_04022025">04.02.2025</td>
+              <td>85%</td>
+            </tr>
+            <tr>
+              <td class="course-cell">
+                <span class="course-marker course-stochastik-ii"></span>
+                <span>
+                  <a
+                    href="#"
+                    class="not-implemented-link"
+                    data-i18n="course_stochastic_ii"
+                  >
+                    Stochastik II
+                  </a>
+                </span>
+              </td>
+
+              <td>Dr. Meyer</td>
+              <td data-i18n="due_date_31012025">31.01.2025</td>
+              <td>75%</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- Suchfunktion für weitere Kurse -->
+        <div class="table-footer">
+          <label for="course-search" data-i18n="search_courses_label"
+            >Weitere Kurse</label
+          >
+          <input
+            type="text"
+            id="course-search"
+            placeholder="Nach Kursen suchen..."
+            data-i18n-placeholder="search_courses_placeholder"
+          />
+        </div>
+      </section>
+      <!-- Roboter-Avatar für visuelle Interaktion -->
+      <div class="robot-avatar">
+        <div id="staticRobot" class="static-robot"></div>
+
+        <div
+          id="animationRobot"
+          class="animation-robot"
+          style="display: none"
+        ></div>
+      </div>
+    </main>
+    <!-- Seitenleiste für Benachrichtigungen und Kalender -->
+    <aside class="sidebar" id="sidebar">
+      <!-- Verschiedene Benachrichtigungstypen -->
+      <div
+        class="notification success"
+        id="notificationTutorCorrection"
+        style="display: none"
+        data-notification-id="tutorCorrection"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_tutor_correction">
+          Korrektur erfolgreich hochgeladen
+        </p>
+        <p class="notification-course">Analysis I</p>
+        <p class="notification-time"></p>
+      </div>
+
+      <div
+        class="notification success"
+        id="notificationHA11"
+        style="display: none"
+        data-notification-id="ha11"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_ha11_uploaded">
+          Hausaufgabe 11 eingereicht
+        </p>
+        <p class="notification-course" data-i18n="course_gmci">GMCI</p>
+        <p class="notification-time"></p>
+      </div>
+
+      <div
+        class="notification"
+        id="notificationNewCorrection"
+        style="display: none"
+        data-notification-id="newCorrection"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_new_correction">
+          Neue Korrektur verfügbar
+        </p>
+        <p class="notification-course" data-i18n="course_stochastics_ii">
+          Stochastik II
+        </p>
+        <p class="notification-time" data-i18n="three_days_ago">
+          Vor drei Tagen
+        </p>
+      </div>
+      <!-- Kalendercontainer -->
+      <div class="sidebar-content" id="calendarContainer"></div>
+    </aside>
+  </body>
 </html>

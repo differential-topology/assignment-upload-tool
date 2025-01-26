@@ -1,0 +1,161 @@
+/*
+Diese Datei definiert die Stile für Tabellen, inklusive Sortierung, Farbkodierung und interaktiver Elemente.
+*/
+/* Grundlegende Tabellenstruktur für alle Tabellentypen */
+.table-section table,
+.table-courses,
+.table-groups,
+.table-tasks,
+.uploaded-files {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.table-section th,
+.table-courses th,
+.table-groups th,
+.table-tasks th,
+.uploaded-files th {
+  position: relative;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  border: 1px solid #ddd;
+  text-align: left;
+
+  white-space: normal;
+  background-color: #f4f4f4;
+}
+
+.table-section td,
+.table-courses td,
+.table-groups td,
+.table-tasks td,
+.uploaded-files td {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+}
+
+table tbody tr td {
+  border-top: none !important;
+}
+
+table tbody tr:not(:last-child) td {
+  border-bottom: none !important;
+}
+/* Sortierbare Spaltenköpfe mit interaktiven Elementen */
+.sort-btn {
+  display: inline-flex;
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  align-items: center;
+  border: none;
+  font-size: 1rem;
+  background: none;
+  margin-left: 4px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.sort-btn i {
+  color: #a4a4ae;
+  transition: color 0.2s ease;
+}
+
+.sort-btn:hover i,
+.sort-btn:focus i {
+  color: #6c6c76;
+}
+
+.sort-btn:active i {
+  color: #44444e;
+  transition: transform 0.1s ease, color 0.1s ease;
+  transform: scale(0.95);
+}
+
+.table-section {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+table {
+  display: table;
+  margin: 0 auto;
+}
+/* Footer-Bereich mit Eingabefeld und Buttons */
+
+.table-footer {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "label . button"
+    "input input input";
+  gap: 0.5rem;
+}
+.table-footer label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  grid-area: label;
+}
+.table-footer input {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 0.5rem;
+  grid-area: input;
+}
+.table-footer .btn-secondary {
+  white-space: nowrap;
+  grid-area: button;
+}
+
+td.course-cell {
+  position: relative;
+  padding-left: 25px !important;
+}
+
+.course-marker {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 4px;
+  height: 70%;
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+/* Farbkodierung für verschiedene Kurse */
+
+.course-stochastik-ii {
+  background-color: #4287f5;
+}
+
+.course-gmci {
+  background-color: #f5a142;
+}
+
+.course-analysis-i {
+  background-color: #4da352;
+}
+
+.course-analysis-ii {
+  background-color: #8cd98a;
+}
+
+.table-courses tbody tr:nth-child(odd),
+.table-tasks tbody tr:nth-child(odd),
+.table-groups tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-courses tbody tr:nth-child(even),
+.table-tasks tbody tr:nth-child(even),
+.table-groups tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.table-courses tbody tr:hover,
+.table-tasks tbody tr:hover,
+.table-groups tbody tr:hover {
+  background-color: #e2eefe;
+}

@@ -1,0 +1,41 @@
+/*
+Diese Datei definiert die Stile für den fixen Header mit Navigation und Hamburger-Menü.
+*/
+.main-header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background-color: #eee;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.main-nav a {
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.main-nav .active a {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background-color: #ddd;
+}
+
+.hamburger-menu {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}

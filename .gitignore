@@ -1,1 +1,55 @@
+# Betriebssystem-spezifische Dateien
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.nfs*
+
+# Editor- und IDE-spezifische Dateien
+
+# VSCode
+.vscode/
+
+# WebStorm/IntelliJ
+.idea/
+
+# Allgemeine Editor-Dateien
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Logs und temporäre Dateien
+logs/
+*.log
+*.tmp
+*.temp
+
+# Build-Verzeichnisse
+dist/
+build/
+public/build/
+
+# Umgebungsvariablen-Dateien
+.env
+.env.local
+.env.*.local
+
+# Weitere temporäre Dateien
+*.swp
+*.swo
+*.bak
+*.backup
+*.cache
+
+# Sonstiges

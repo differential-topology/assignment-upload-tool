@@ -1,0 +1,48 @@
+/*
+Diese Datei definiert die Stile für Toast-Benachrichtigungen, die temporär am unteren Bildschirmrand eingeblendet werden.
+*/
+
+/* Basis-Stil für Toast-Benachrichtigungen mit Ein- und Ausblendanimation */
+.toast {
+  visibility: hidden;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+/* Animations-Keyframes für das Ein- und Ausblenden */
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 20px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}

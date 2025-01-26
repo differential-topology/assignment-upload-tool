@@ -1,0 +1,19 @@
+/*
+Diese Datei definiert die Stile für die Sprachauswahl-Komponente, einschließlich Label und Auswahlfeld.
+*/
+
+.language-select {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.language-select label {
+  margin: 0;
+  line-height: 1;
+}
+.language-select select {
+  margin: 0;
+  padding: 0.3rem;
+  font-size: inherit;
+  line-height: 1;
+}

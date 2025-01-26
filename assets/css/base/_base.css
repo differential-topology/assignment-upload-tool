@@ -1,0 +1,11 @@
+/*
+Diese Datei enthält grundlegende Stildefinitionen für das Basislayout der Anwendung.
+*/
+
+body {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #333;
+  flex-direction: column;
+}

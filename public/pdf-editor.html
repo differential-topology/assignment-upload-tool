@@ -1,146 +1,332 @@
 <!DOCTYPE html>
 <!--
-Datei: pdf-editor.html
-Zweck: PDF-Editor für Tutoren zum Bearbeiten von Korrekturen.
+Diese Datei implementiert den PDF-Editor für Tutoren mit Korrektur-Werkzeugen und Punktevergabe-System.
 -->
-
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <title>Assignment Upload Tool - PDF-Editor</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-  />
-  <script src="../assets/js/scripts.js" defer></script>
-</head>
-<body>
-<header class="main-header">
-  <div class="hamburger-menu" id="hamburgerMenu">
-    <i class="fa fa-bars"></i>
-  </div>
-  <nav class="main-nav">
-    <ul>
-      <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
-      <li><a href="courses.html" data-nav="courses">Kurse</a></li>
-      <li><a href="groups.html" data-nav="groups">Gruppen</a></li>
-      <li><a href="settings.html" data-nav="settings">Einstellungen</a></li>
-    </ul>
-  </nav>
-  <div class="profile-icon">
-    <img
-      src="../assets/images/profile-picture.png"
-      alt="Profil"
-      id="avatarIcon"
+  <head>
+    <!-- Grundlegende Meta-Tags und externe Ressourcen -->
+    <meta charset="UTF-8" />
+    <title data-i18n="title_pdf_editor">
+      Assignment Upload Tool - PDF-Editor
+    </title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <span class="notification-badge">1</span>
-    <div class="avatar-popup" id="avatarPopup">
-      <ul>
-        <li><a href="#" id="editProfile">Profil bearbeiten</a></li>
-        <li><a href="settings.html">Einstellungen</a></li>
-        <li><a href="#" id="help">Hilfe</a></li>
-        <li><a href="#" id="logoutButton">Abmelden</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
-
-<main class="main-content">
-  <h1>PDF Editor</h1>
-
-  <div class="editor-toolbar">
-    <button class="btn-secondary" title="Fett"><i class="fas fa-bold"></i></button>
-    <button class="btn-secondary" title="Kursiv"><i class="fas fa-italic"></i></button>
-    <button class="btn-secondary" title="Unterstrichen"><i class="fas fa-underline"></i></button>
-    <button class="btn-secondary" title="Hervorheben"><i class="fas fa-highlighter"></i></button>
-    <button class="btn-secondary" title="Listen"><i class="fas fa-list"></i></button>
-    <button class="btn-secondary" title="Einfügen Bild"><i class="fas fa-image"></i></button>
-    <button class="btn-secondary" title="Code"><i class="fas fa-code"></i></button>
-  </div>
-
-  <!-- PDF-Vorschau -->
-  <div class="pdf-preview" style="margin-bottom: 20px;">
-    <iframe
-      src="https://www.math.uni-duesseldorf.de/~internet/ANA_1_WS22/Ana1_Blatt10.pdf"
-      width="100%"
-      height="600px"
-    ></iframe>
-  </div>
-
-  <!-- Tabelle zum Eintragen von Punkten -->
-  <h2>Punktevergabe</h2>
-  <table class="table-tasks" style="width: 50%; margin-bottom: 20px; margin-left: 0;">
-    <thead>
-      <tr>
-        <th>Aufgabe</th>
-        <th>Max. Punkte</th>
-        <th>Erreichte Punkte</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>6</td>
-        <td><input type="number" id="points101" style="width: 60px;" /></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>6</td>
-        <td><input type="number" id="points102" style="width: 60px;" /></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>6</td>
-        <td><input type="number" id="points103" style="width: 60px;" /></td>
-      </tr>
-      <tr>
-        <td><strong>Gesamt</strong></td>
-        <td><strong>18</strong></td>
-        <td><span id="pointsTotal">0</span></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Korrektur hochladen-Button -->
-  <button class="btn btn-primary" id="uploadCorrectionBtn">
-    Korrektur einreichen
-  </button>
-  <div class="submit-container" style="margin-top: 1rem;">
-    <div class="progress-wrapper">
-      <div class="progress-bar" id="correctionProgress" style="display: none;">
-        <div class="progress-fill" id="correctionProgressFill"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <script src="../assets/js/main.js" type="module"></script>
+  </head>
+  <body>
+    <!-- Hauptnavigation mit Hamburger-Menü und Profilbereich -->
+    <header class="main-header">
+      <div class="hamburger-menu" id="hamburgerMenu">
+        <i class="fa fa-bars"></i>
       </div>
-      <span id="correctionProgressPercent" style="display: none;">0%</span>
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a
+              href="dashboard.html"
+              data-nav="dashboard"
+              data-i18n="nav_dashboard"
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="courses.html" data-nav="courses" data-i18n="nav_courses"
+              >Kurse</a
+            >
+          </li>
+          <li>
+            <a href="groups.html" data-nav="groups" data-i18n="nav_groups"
+              >Gruppen</a
+            >
+          </li>
+          <li>
+            <a href="settings.html" data-nav="settings" data-i18n="nav_settings"
+              >Einstellungen</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="profile-icon">
+        <img
+          src="../assets/images/profile-picture.png"
+          alt="Profil"
+          id="avatarIcon"
+          data-i18n-alt="profile_avatar_alt"
+        />
+        <span class="notification-badge" style="display: none"> </span>
+        <div class="avatar-popup" id="avatarPopup">
+          <ul>
+            <li>
+              <a href="#" id="editProfile" data-i18n="edit_profile"
+                >Profil bearbeiten</a
+              >
+            </li>
+            <li>
+              <a href="settings.html" data-i18n="settings">Einstellungen</a>
+            </li>
+            <li><a href="#" id="help" data-i18n="help">Hilfe</a></li>
+            <li>
+              <a href="#" id="logoutButton" data-i18n="logout">Abmelden</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main class="main-content">
+      <h1 data-i18n="header_pdf_editor">PDF Editor</h1>
+      <!-- Werkzeugleiste für PDF-Bearbeitung -->
+      <div class="editor-toolbar">
+        <button
+          class="btn-secondary"
+          title="Rückgängig"
+          data-i18n-title="btn_undo"
+        >
+          <i class="fas fa-undo-alt"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Wiederholen"
+          data-i18n-title="btn_redo"
+        >
+          <i class="fas fa-redo-alt"></i>
+        </button>
+
+        <button
+          class="btn-secondary"
+          title="Schriftgröße"
+          data-i18n-title="btn_font_size"
+        >
+          <i class="fas fa-text-height"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Schriftfarbe"
+          data-i18n-title="btn_font_color"
+        >
+          <i class="fas fa-font"></i>
+        </button>
+
+        <button
+          class="btn-secondary"
+          title="Text linksbündig"
+          data-i18n-title="btn_align_left"
+        >
+          <i class="fas fa-align-left"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Text zentriert"
+          data-i18n-title="btn_align_center"
+        >
+          <i class="fas fa-align-center"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Text rechtsbündig"
+          data-i18n-title="btn_align_right"
+        >
+          <i class="fas fa-align-right"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Blocksatz"
+          data-i18n-title="btn_justify"
+        >
+          <i class="fas fa-align-justify"></i>
+        </button>
+
+        <button class="btn-secondary" title="Fett" data-i18n-title="btn_bold">
+          <i class="fas fa-bold"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Kursiv"
+          data-i18n-title="btn_italic"
+        >
+          <i class="fas fa-italic"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Unterstrichen"
+          data-i18n-title="btn_underline"
+        >
+          <i class="fas fa-underline"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Hervorheben"
+          data-i18n-title="btn_highlight"
+        >
+          <i class="fas fa-highlighter"></i>
+        </button>
+
+        <button class="btn-secondary" title="Listen" data-i18n-title="btn_list">
+          <i class="fas fa-list"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Bild einfügen"
+          data-i18n-title="btn_insert_image"
+        >
+          <i class="fas fa-image"></i>
+        </button>
+        <button class="btn-secondary" title="Code" data-i18n-title="btn_code">
+          <i class="fas fa-code"></i>
+        </button>
+        <button
+          class="btn-secondary"
+          title="Link einfügen"
+          data-i18n-title="btn_insert_link"
+        >
+          <i class="fas fa-link"></i>
+        </button>
+      </div>
+      <!-- PDF-Vorschau und Punktevergabe -->
+      <div class="pdf-preview" style="margin-bottom: 20px">
+        <iframe
+          src="https://seafile.cloud.uni-hannover.de/f/097cdec50b604475a1f0/?raw=1"
+          width="100%"
+          height="600px"
+        ></iframe>
+      </div>
+
+      <!-- Punktetabelle und Upload-Bereich -->
+      <h2 data-i18n="points_allocation_title">Punktevergabe</h2>
+      <table
+        class="table-tasks"
+        style="width: 50%; margin-bottom: 20px; margin-left: 0"
+      >
+        <thead>
+          <tr>
+            <th data-i18n="task_column">Aufgabe</th>
+            <th data-i18n="max_points_column">Max. Punkte</th>
+            <th data-i18n="earned_points_column">Erreichte Punkte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>6</td>
+            <td><input type="number" id="points101" style="width: 60px" /></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>6</td>
+            <td><input type="number" id="points102" style="width: 60px" /></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>6</td>
+            <td><input type="number" id="points103" style="width: 60px" /></td>
+          </tr>
+          <tr>
+            <td data-i18n="total_label"><strong>Gesamt</strong></td>
+            <td><strong>18</strong></td>
+            <td><span id="pointsTotal">0</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button
+        class="btn btn-primary"
+        id="uploadCorrectionBtn"
+        data-i18n="submit_correction"
+      >
+        Korrektur einreichen
+      </button>
+      <div class="submit-container" style="margin-top: 1rem">
+        <i
+          id="correctionCancelIcon"
+          class="fa-solid fa-circle-stop cancel-icon"
+          title="Upload abbrechen"
+          style="display: none"
+        ></i>
+        <div class="progress-wrapper">
+          <div
+            class="progress-bar"
+            id="correctionProgress"
+            style="display: none"
+          >
+            <div class="progress-fill" id="correctionProgressFill"></div>
+          </div>
+          <span id="correctionProgressPercent" style="display: none">0%</span>
+        </div>
+      </div>
+    </main>
+    <!-- Seitenleiste für Benachrichtigungen und Kalender -->
+    <aside class="sidebar" id="sidebar">
+      <!-- Verschiedene Benachrichtigungstypen -->
+
+      <div
+        class="notification success"
+        id="notificationTutorCorrection"
+        style="display: none"
+        data-notification-id="tutorCorrection"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_tutor_correction">
+          Korrektur erfolgreich hochgeladen
+        </p>
+        <p class="notification-course">Analysis I</p>
+        <p class="notification-time"></p>
+      </div>
+
+      <div
+        class="notification success"
+        id="notificationHA11"
+        style="display: none"
+        data-notification-id="ha11"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_ha11_uploaded">
+          Hausaufgabe 11 eingereicht
+        </p>
+        <p class="notification-course" data-i18n="course_gmci">GMCI</p>
+        <p class="notification-time"></p>
+      </div>
+
+      <div
+        class="notification"
+        id="notificationNewCorrection"
+        style="display: none"
+        data-notification-id="newCorrection"
+        data-dynamic-time="true"
+      >
+        <span class="notification-close"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <p class="notification-title" data-i18n="notification_new_correction">
+          Neue Korrektur verfügbar
+        </p>
+        <p class="notification-course" data-i18n="course_stochastics_ii">
+          Stochastik II
+        </p>
+        <p class="notification-time" data-i18n="three_days_ago">
+          Vor drei Tagen
+        </p>
+      </div>
+      <!-- Kalendercontainer -->
+      <div class="sidebar-content" id="calendarContainer"></div>
+    </aside>
+    <!-- Roboter-Avatar für visuelle Interaktion -->
+    <div class="robot-avatar">
+      <div id="staticRobot" class="static-robot"></div>
+
+      <div
+        id="animationRobot"
+        class="animation-robot"
+        style="display: none"
+      ></div>
     </div>
-  </div>
-
-
-</main>
-
-<aside class="sidebar">
-
-    <div class="notification success" id="notificationTutorCorrection" style="display: none;">
-      <p class="notification-title">Korrektur erfolgreich hochgeladen</p>
-      <p class="notification-time">Gerade eben</p>
-    </div>
-
-  
-    <div class="notification success" id="notificationHA11" style="display: none;">
-      <p class="notification-title">HA11 (GMCI) erfolgreich eingereicht</p>
-      <p class="notification-time">Gerade eben</p>
-    </div>
-  
-    <div class="notification">
-      <p class="notification-title">Neue Korrektur verfügbar</p>
-      <p class="notification-time">Vor drei Tagen</p>
-    </div>
-    <div class="sidebar-content" id="calendarContainer">
-    </div>
-  </aside>
-
-<div class="robot-avatar">
-  <img src="../assets/images/robot-avatar.png" alt="Avatar" />
-</div>
-</body>
+  </body>
 </html>
