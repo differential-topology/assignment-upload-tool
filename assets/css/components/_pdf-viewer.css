@@ -1,0 +1,13 @@
+/*
+Diese Datei enthält die grundlegenden Stile für den pdf-Previewer.
+*/
+
+/* iframe des pdf-Previewers */
+.pdf-preview iframe {
+  width: 60%;
+  height: 88%;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: -3.5em;
+}
