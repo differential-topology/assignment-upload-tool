@@ -21,6 +21,7 @@ Diese zentrale CSS-Datei organisiert alle Stylesheets nach dem SMACSS-Pattern (S
 @import url("./components/_login.css");
 @import url("./components/_notifications.css");
 @import url("./components/_password-field.css");
+@import url("./components/_pdf-viewer.css");
 @import url("./components/_progress-bar.css");
 @import url("./components/_tables.css");
 @import url("./components/_tooltips.css");
