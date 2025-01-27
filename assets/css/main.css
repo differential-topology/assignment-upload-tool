@@ -39,4 +39,4 @@ Diese zentrale CSS-Datei organisiert alle Stylesheets nach dem SMACSS-Pattern (S
 @import url("./themes/_dark-mode.css");
 
 @import url("./utils/_responsive.css");
-@import url("./utils/dom-loading.css");
+@import url("./utils/_dom-loading.css");

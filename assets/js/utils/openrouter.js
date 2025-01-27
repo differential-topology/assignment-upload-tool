@@ -115,7 +115,7 @@ export function getSelectedModels() {
   if (m3 && modelMapping[m3]) arr.push(modelMapping[m3]);
 
   if (arr.length === 0) {
-    arr.push("google/gemini-2.0-flash-exp:free");
+    arr.push("mistralai/mistral-7b-instruct:free");
   }
   return arr;
 }
