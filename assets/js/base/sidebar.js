@@ -5,8 +5,8 @@ Diese Datei initialisiert und verwaltet die Seitenleiste mit Benachrichtigungen 
 import {
   updateNotificationDisplay,
   initializeNotifications,
-} from "/assets/js/components/notifications.js";
-import { generateCalendar } from "/assets/js/components/calendar.js";
+} from "assets/js/components/notifications.js";
+import { generateCalendar } from "assets/js/components/calendar.js";
 
 export function setupSidebarJS() {
   const sidebarContainer = document.querySelector(".sidebar");

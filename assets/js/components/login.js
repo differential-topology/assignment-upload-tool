@@ -2,7 +2,7 @@
 Diese Datei implementiert die Login/Logout-Logik und die rollenbasierte Benutzerauthentifizierung.
 */
 
-import { setUserRole, setUsername } from "/assets/js/utils/system-prompt-config.js";
+import { setUserRole, setUsername } from "assets/js/utils/system-prompt-config.js";
 
 /* Verarbeitet Login-Formular und setzt Benutzerrolle */
 function initializeLoginForm() {

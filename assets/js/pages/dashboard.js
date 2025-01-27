@@ -1,12 +1,12 @@
 /*
 Diese Datei steuert die Dashboard-Logik mit Fortschrittsanzeigen, Korrekturen und Statusupdates.
 */
-import { getCurrentPage } from "/assets/js/utils/page-utils.js";
+import { getCurrentPage } from "assets/js/utils/page-utils.js";
 import {
   initOverallProgressAnimation,
   initTooltipProgressAnimations,
   initCorrectionProgressAnimation,
-} from "/assets/js/components/progress-animations.js";
+} from "assets/js/components/progress-animations.js";
 /* Prüfung und Aktualisierung des HA11-Status in der Tabelle */
 const currentPage = getCurrentPage();
 

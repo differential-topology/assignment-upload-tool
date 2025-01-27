@@ -1,7 +1,7 @@
 /*
 Diese Datei steuert die Header-Funktionalitäten wie Navigation, Avatar-Popup und mobiles Menü.
 */
-import { initializeAvatarPopup } from "/assets/js/components/avatar.js";
+import { initializeAvatarPopup } from "assets/js/components/avatar.js";
 
 /* Hauptfunktion für die Header-Initialisierung */
 export function setupHeaderJS() {

@@ -2,7 +2,7 @@
 Diese Datei implementiert die Dark Mode Funktionalität mit Toast-Benachrichtigung und Icon-Anpassungen.
 */
 
-import { showToast, resetToast } from "/assets/js/components/toast.js";
+import { showToast, resetToast } from "assets/js/components/toast.js";
 
 const darkModeToggle = document.getElementById("darkModeToggle");
 const modeLabel = document.getElementById("modeLabel");
