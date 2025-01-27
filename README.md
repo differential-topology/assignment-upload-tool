@@ -2,7 +2,7 @@
 <a id="top"></a>
 <h1 align="center">
   <br>
-  <a href="https://USERNAME.github.io/assignment-upload-tool/"><img src="https://raw.githubusercontent.com/differential-topology/assignment-upload-tool/d65a0c655b5b132511e83e845d5788366cc9f5e4/assets/images/logo.svg" alt="Assignment Upload Tool" width="150" style="margin-bottom: 20px;"></a>
+  <a href="https://USERNAME.github.io/assignment-upload-tool/"><img src="https://raw.githubusercontent.com/differential-topology/assignment-upload-tool/d65a0c655b5b132511e83e845d5788366cc9f5e4assets/images/logo.svg" alt="Assignment Upload Tool" width="150" style="margin-bottom: 20px;"></a>
   <br>
   Assignment Upload Tool
   <br>

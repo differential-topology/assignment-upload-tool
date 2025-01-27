@@ -8,24 +8,24 @@ import {
   appendBotMessageToChat,
   playAntennaWiggle,
   stopAntennaWiggle,
-} from "/assets/js/components/robot.js";
+} from "assets/js/components/robot.js";
 
 import {
   getApiKeyStatus,
   getSelectedModels,
   requestOpenRouterWithFallback,
-} from "/assets/js/utils/openrouter.js";
+} from "assets/js/utils/openrouter.js";
 
 import {
   getIsGenerating,
   setIsGenerating,
   getCurrentAbortController,
   setCurrentAbortController,
-} from "/assets/js/utils/global-state.js";
+} from "assets/js/utils/global-state.js";
 
-import { getLogger } from "/assets/js/utils/openrouter.js";
-import { appendPredefinedErrorMessage } from "/assets/js/utils/system-prompt-config.js";
-import { buildSystemPrompt } from "/assets/js/utils/system-prompt-builder.js";
+import { getLogger } from "assets/js/utils/openrouter.js";
+import { appendPredefinedErrorMessage } from "assets/js/utils/system-prompt-config.js";
+import { buildSystemPrompt } from "assets/js/utils/system-prompt-builder.js";
 
 let logger = null;
 /* Event-Handler für Chat-Interaktionen und Statusverwaltung */

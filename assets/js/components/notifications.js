@@ -2,7 +2,7 @@
 Diese Datei implementiert ein Benachrichtigungssystem mit dynamischer Zeitanzeige, Sortierung und Badge-Counter.
 */
 
-import { globalSidebarContainer } from "/assets/js/utils/global-state.js";
+import { globalSidebarContainer } from "assets/js/utils/global-state.js";
 
 /* Lokaler Storage für Benachrichtigungen und deren Status */
 function getPrevBadgeCount() {

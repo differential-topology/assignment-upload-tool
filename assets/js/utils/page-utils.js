@@ -2,7 +2,7 @@
 Diese Datei stellt Hilfsfunktionen zur Seitenverwaltung und URL-basierten Initialisierung bereit.
 */
 
-import { setCurrentPage } from "/assets/js/utils/system-prompt-config.js";
+import { setCurrentPage } from "assets/js/utils/system-prompt-config.js";
 
 /* Ermittelt den Seitennamen aus der URL */
 export function getCurrentPage() {

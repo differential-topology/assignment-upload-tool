@@ -1,12 +1,12 @@
 /*
 Diese Datei steuert den PDF-Editor für Korrekturen mit Punktevergabe und Upload-Funktionalität.
 */
-import { getCurrentPage } from "/assets/js/utils/page-utils.js";
+import { getCurrentPage } from "assets/js/utils/page-utils.js";
 import {
   updateNotificationBadge,
   updateNotificationDisplay,
-} from "/assets/js/components/notifications.js";
-import { setIsCorrectionSubmitted } from "/assets/js/utils/system-prompt-config.js";
+} from "assets/js/components/notifications.js";
+import { setIsCorrectionSubmitted } from "assets/js/utils/system-prompt-config.js";
 
 /* Hauptlogik nur auf der PDF-Editor Seite */
 const currentPage = getCurrentPage();
