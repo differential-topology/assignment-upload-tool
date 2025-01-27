@@ -125,7 +125,7 @@ function renderConversationUI() {
       const userMessageContainer = document.createElement("div");
       userMessageContainer.classList.add("user-message");
       const userAvatar = document.createElement("img");
-      userAvatar.src = "../assets/images/profile-picture.png";
+      userAvatar.src = "/assets/images/profile-picture.png";
       userAvatar.alt = "User Avatar";
       const userMessageBubble = document.createElement("div");
       userMessageBubble.classList.add("user-chat-bubble");
@@ -217,7 +217,7 @@ export function displayUserMessage(text) {
   const userMessageContainer = document.createElement("div");
   userMessageContainer.classList.add("user-message");
   const userAvatar = document.createElement("img");
-  userAvatar.src = "../assets/images/profile-picture.png";
+  userAvatar.src = "/assets/images/profile-picture.png";
   userAvatar.alt = "User Avatar";
   const userMessageBubble = document.createElement("div");
   userMessageBubble.classList.add("user-chat-bubble");
@@ -330,7 +330,7 @@ export function initializeAnimations() {
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "../assets/animations/static_robot.json",
+    path: "/assets/animations/static_robot.json",
   });
 }
 /* Lädt die Kopfschüttel-Animation */
@@ -343,7 +343,7 @@ function loadHeadShakeAnimation() {
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "../assets/animations/headshake.json",
+    path: "/assets/animations/headshake.json",
   });
 }
 /* Lädt die Antennen-Wackel-Animation */
@@ -355,7 +355,7 @@ function loadAntennaWiggleAnimation() {
     renderer: "svg",
     loop: true,
     autoplay: false,
-    path: "../assets/animations/antenna-wiggle.json",
+    path: "/assets/animations/antenna-wiggle.json",
   });
 }
 
