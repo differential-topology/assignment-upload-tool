@@ -3,7 +3,7 @@ Diese Datei implementiert die Internationalisierung (i18n) mit dynamischem Nachl
 */
 
 export function loadTranslations(language) {
-  const languageFilePath = `./assignment-upload-tool/assets/translations/${language}.json`;
+  const languageFilePath = `https://differential-topology.github.io/assignment-upload-tool/assets/translations/${language}.json`;
 
   fetch(languageFilePath)
     .then((response) => {

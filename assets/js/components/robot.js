@@ -330,7 +330,7 @@ export function initializeAnimations() {
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "../../assets/animations/static_robot.json",
+    path: "https://differential-topology.github.io/assignment-upload-tool/assets/animations/static_robot.json",
   });
 }
 /* Lädt die Kopfschüttel-Animation */
@@ -343,7 +343,7 @@ function loadHeadShakeAnimation() {
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "../../assets/animations/headshake.json",
+    path: "https://differential-topology.github.io/assignment-upload-tool/assets/animations/headshake.json",
   });
 }
 /* Lädt die Antennen-Wackel-Animation */
@@ -355,7 +355,7 @@ function loadAntennaWiggleAnimation() {
     renderer: "svg",
     loop: true,
     autoplay: false,
-    path: "../../assets/animations/antenna-wiggle.json",
+    path: "https://differential-topology.github.io/assignment-upload-tool/assets/animations/antenna-wiggle.json",
   });
 }
 
