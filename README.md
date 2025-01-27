@@ -186,63 +186,63 @@ Um das Assignment Upload Tool lokal auszuführen, folgen Sie diesen Schritten:
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 base</summary>
 
-- `_base.css`
-- `_reset.css`
+- `base.css`
+- `reset.css`
 ---
 </details>
 
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 components</summary>
 
-- `_buttons.css`
-- `_calendar.css`
-- `_chat-bubble.css`
-- `_developer-settings-panel.css`
-- `_editor-toolbar.css`
-- `_forms.css`
-- `_language-select.css`
-- `_logger.css`
-- `_login.css`
-- `_notifications.css`
-- `_password-field.css`
-- `_progress-bar.css`
-- `_progress-tooltip.css`
-- `_tables.css`
-- `_toast.css`
-- `_tooltips.css`
-- `_upload.css`
+- `buttons.css`
+- `calendar.css`
+- `chat-bubble.css`
+- `developer-settings-panel.css`
+- `editor-toolbar.css`
+- `forms.css`
+- `language-select.css`
+- `logger.css`
+- `login.css`
+- `notifications.css`
+- `password-field.css`
+- `progress-bar.css`
+- `progress-tooltip.css`
+- `tables.css`
+- `toast.css`
+- `tooltips.css`
+- `upload.css`
 ---
 </details>
 
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 layout</summary>
 
-- `_header.css`
-- `_main-content.css`
-- `_sidebar.css`
+- `header.css`
+- `main-content.css`
+- `sidebar.css`
 ---
 </details>
 
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 modules</summary>
 
-- `_avatar.css`
-- `_robot.css`
+- `avatar.css`
+- `robot.css`
 ---
 </details>
 
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 themes</summary>
 
-- `_dark-mode.css`
+- `dark-mode.css`
 ---
 </details>
 
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 utils</summary>
 
-- `_dom-loading.css`
-- `_responsive.css`
+- `dom-loading.css`
+- `responsive.css`
 ---
 </details>
 

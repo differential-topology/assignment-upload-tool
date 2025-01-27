@@ -330,7 +330,7 @@ export function initializeAnimations() {
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "../../animations/static_robot.json",
+    path: "../../assets/animations/static_robot.json",
   });
 }
 /* Lädt die Kopfschüttel-Animation */
@@ -343,7 +343,7 @@ function loadHeadShakeAnimation() {
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "../../animations/headshake.json",
+    path: "../../assets/animations/headshake.json",
   });
 }
 /* Lädt die Antennen-Wackel-Animation */
@@ -355,7 +355,7 @@ function loadAntennaWiggleAnimation() {
     renderer: "svg",
     loop: true,
     autoplay: false,
-    path: "../../animations/antenna-wiggle.json",
+    path: "../../assets/animations/antenna-wiggle.json",
   });
 }
 
