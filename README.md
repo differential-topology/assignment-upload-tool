@@ -43,7 +43,10 @@
   <a href="#lizenz">Lizenz</a>
 </p>
 
-![Übersicht des Assignment Upload Tools](assets/images/assignment-upload-tool-overview.gif)
+<div align="center">
+  <img src="assets/images/assignment-upload-tool-overview.gif" alt="Übersicht des Assignment Upload Tools">
+</div>
+
 <a id="demo"></a>
 ## 🔗 Projekt-Demo
 Das *Assignment Upload Tool* direkt online ausprobieren:
