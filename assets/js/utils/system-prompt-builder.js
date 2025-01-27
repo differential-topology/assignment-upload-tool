@@ -1,7 +1,7 @@
 /*
 Diese Datei ist für die Erstellung dynamischer Systemprompts verantwortlich und verwaltet die Integration des Chatverlaufs sowie kontextspezifischer Informationen.
 */
-import { getSystemPromptVariables } from "assets/js/utils/system-prompt-config.js";
+import { getSystemPromptVariables } from "/assets/js/utils/system-prompt-config.js";
 
 /* Maximale Länge für den Chatverlauf */
 const MAX_CHAT_HISTORY_LENGTH = 2500;

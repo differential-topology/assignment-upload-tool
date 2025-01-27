@@ -3,40 +3,40 @@ Diese zentrale CSS-Datei organisiert alle Stylesheets nach dem SMACSS-Pattern (S
 */
 
 /* Basis-Stile für Reset */
-@import url("assets/css/base/_reset.css");
-@import url("assets/css/base/_base.css");
+@import url("./base/_reset.css");
+@import url("./base/_base.css");
 
 /* Haupt-Layoutstrukturen */
-@import url("assets/css/layout/_header.css");
-@import url("assets/css/layout/_main-content.css");
-@import url("assets/css/layout/_sidebar.css");
+@import url("./layout/_header.css");
+@import url("./layout/_main-content.css");
+@import url("./layout/_sidebar.css");
 
 /* Wiederverwendbare Komponenten */
-@import url("assets/css/components/_buttons.css");
-@import url("assets/css/components/_calendar.css");
-@import url("assets/css/components/_chat-bubble.css");
-@import url("assets/css/components/_editor-toolbar.css");
-@import url("assets/css/components/_forms.css");
-@import url("assets/css/components/_language-select.css");
-@import url("assets/css/components/_login.css");
-@import url("assets/css/components/_notifications.css");
-@import url("assets/css/components/_password-field.css");
-@import url("assets/css/components/_pdf-viewer.css");
-@import url("assets/css/components/_progress-bar.css");
-@import url("assets/css/components/_tables.css");
-@import url("assets/css/components/_tooltips.css");
-@import url("assets/css/components/_upload.css");
-@import url("assets/css/components/_developer-settings-panel.css");
-@import url("assets/css/components/_logger.css");
-@import url("assets/css/components/_toast.css");
-@import url("assets/css/components/_progress-tooltip.css");
+@import url("./components/_buttons.css");
+@import url("./components/_calendar.css");
+@import url("./components/_chat-bubble.css");
+@import url("./components/_editor-toolbar.css");
+@import url("./components/_forms.css");
+@import url("./components/_language-select.css");
+@import url("./components/_login.css");
+@import url("./components/_notifications.css");
+@import url("./components/_password-field.css");
+@import url("./components/_pdf-viewer.css");
+@import url("./components/_progress-bar.css");
+@import url("./components/_tables.css");
+@import url("./components/_tooltips.css");
+@import url("./components/_upload.css");
+@import url("./components/_developer-settings-panel.css");
+@import url("./components/_logger.css");
+@import url("./components/_toast.css");
+@import url("./components/_progress-tooltip.css");
 
 /* Komplexe, eigenständige Module */
-@import url("assets/css/modules/_avatar.css");
-@import url("assets/css/modules/_robot.css");
+@import url("./modules/_avatar.css");
+@import url("./modules/_robot.css");
 
 /* Theme-Variationen und Hilfsfunktionen */
-@import url("assets/css/themes/_dark-mode.css");
+@import url("./themes/_dark-mode.css");
 
-@import url("assets/css/utils/_responsive.css");
-@import url("assets/css/utils/_dom-loading.css");
+@import url("./utils/_responsive.css");
+@import url("./utils/_dom-loading.css");

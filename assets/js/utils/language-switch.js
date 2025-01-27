@@ -1,7 +1,7 @@
 /*
 Diese Datei implementiert die Sprachauswahl mit Browsersprachen-Erkennung und LocalStorage-Persistenz.
 */
-import { loadTranslations } from "assets/js/utils/i18n.js";
+import { loadTranslations } from "/assets/js/utils/i18n.js";
 
 /* Initialisierung mit Fallback auf Browsersprache oder Deutsch */
 document.addEventListener("DOMContentLoaded", () => {

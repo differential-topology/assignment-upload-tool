@@ -2,7 +2,7 @@
 Diese Datei implementiert das Entwickler-Einstellungspanel mit API-Key-Verwaltung, Modellauswahl und Logger.
 */
 
-import { getApiKeyStatus } from "assets/js/utils/openrouter.js";
+import { getApiKeyStatus } from "/assets/js/utils/openrouter.js";
 
 /* Erstellt oder zeigt das Entwickler-Panel mit allen Einstellungen */
 export function openDeveloperSettings() {

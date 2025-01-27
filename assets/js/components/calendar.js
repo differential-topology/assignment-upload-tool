@@ -1,10 +1,10 @@
-import { eventsByDate } from "assets/js/data/events.js";
+import { eventsByDate } from "/assets/js/data/events.js";
 import {
   currentMonthGlobal,
   currentYearGlobal,
   setCurrentMonthGlobal,
   setCurrentYearGlobal,
-} from "assets/js/utils/global-state.js";
+} from "/assets/js/utils/global-state.js";
 
 /* Generiert die HTML-Struktur des Kalenders und bindet Event-Handler ein */
 export function generateCalendar() {

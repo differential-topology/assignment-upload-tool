@@ -3,7 +3,7 @@ Diese Datei implementiert die Internationalisierung (i18n) mit dynamischem Nachl
 */
 
 export function loadTranslations(language) {
-  const languageFilePath = `assets/translations/${language}.json`;
+  const languageFilePath = `/assets/translations/${language}.json`;
 
   fetch(languageFilePath)
     .then((response) => {

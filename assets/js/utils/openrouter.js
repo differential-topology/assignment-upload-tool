@@ -3,8 +3,8 @@ Diese Datei implementiert die OpenRouter.ai API-Integration mit Modellverwaltung
 */
 
 /* API-Key-Validierung und Status-Management */
-import { getCurrentAbortController } from "assets/js/utils/global-state.js";
-import { Logger } from "assets/js/components/logger.js";
+import { getCurrentAbortController } from "/assets/js/utils/global-state.js";
+import { Logger } from "/assets/js/components/logger.js";
 
 let loggerInstance = null;
 /* Logger-Initialisierung mit DOM-Fallback */
