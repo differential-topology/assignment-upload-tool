@@ -2,7 +2,7 @@
 Diese Datei ist für das Laden und Wiederherstellen von zwischengespeicherten Dateien aus dem LocalStorage zuständig.
 */
 
-import { removeFile } from "./file-remove.js";
+import { removeFile } from "/assets/js/components/file-remove.js";
 
 /* Lädt gespeicherte Dateien in die Tabelle und fügt Entfernen-Funktionalität hinzu */
 export function loadSubmittedFiles() {

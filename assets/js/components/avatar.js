@@ -2,7 +2,7 @@
 Diese Datei steuert das Avatar-Popup mit Benutzermenü und Logout-Funktionalität.
 */
 
-import { resetSystemPromptVariables } from "../utils/system-prompt-config.js";
+import { resetSystemPromptVariables } from "/assets/js/utils/system-prompt-config.js";
 
 export function initializeAvatarPopup() {
   const avatarIcon = document.getElementById("avatarIcon");

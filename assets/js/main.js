@@ -3,30 +3,30 @@ Diese Datei ist der zentrale Einstiegspunkt der Anwendung und koordiniert das La
 */
 
 /* Grundlegende Utilities und Komponenten */
-import "./utils/i18n.js";
-import "./utils/language-switch.js";
-import "./utils/dark-mode.js";
-import "./components/password-toggle.js";
-import "./components/not-implemented-links.js";
-import "./components/assignment-timer.js";
-import "./components/robot.js";
-import "./components/login.js";
-import "./components/table-sort-not-functional.js";
+import "/assets/js/utils/i18n.js";
+import "/assets/js/utils/language-switch.js";
+import "/assets/js/utils/dark-mode.js";
+import "/assets/js/components/password-toggle.js";
+import "/assets/js/components/not-implemented-links.js";
+import "/assets/js/components/assignment-timer.js";
+import "/assets/js/components/robot.js";
+import "/assets/js/components/login.js";
+import "/assets/js/components/table-sort-not-functional.js";
 
 /* Seitenspezifische Funktionalitäten */
-import "./pages/dashboard.js";
-import "./pages/pdf-editor.js";
-import "./pages/upload-assignment.js";
+import "/assets/js/pages/dashboard.js";
+import "/assets/js/pages/pdf-editor.js";
+import "/assets/js/pages/upload-assignment.js";
 
 /* Chat und Fortschrittsanzeigen */
-import "./components/chat.js";
-import "./components/progress-tooltips.js";
+import "/assets/js/components/chat.js";
+import "/assets/js/components/progress-tooltips.js";
 
 /* Basis-Layout und Navigation */
-import { setGlobalSidebarContainer } from "./utils/global-state.js";
-import { setupHeaderJS } from "./base/header.js";
-import { setupSidebarJS } from "./base/sidebar.js";
-import { getCurrentPage } from "./utils/page-utils.js";
+import { setGlobalSidebarContainer } from "/assets/js/utils/global-state.js";
+import { setupHeaderJS } from "/assets/js/base/header.js";
+import { setupSidebarJS } from "/assets/js/base/sidebar.js";
+import { getCurrentPage } from "/assets/js/utils/page-utils.js";
 
 /* Seitenladelogik zur Vermeidung von FOUC */
 document.addEventListener("DOMContentLoaded", function () {

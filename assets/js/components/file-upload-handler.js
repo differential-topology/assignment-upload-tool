@@ -2,7 +2,7 @@
 Diese Datei steuert die Verarbeitung hochgeladener Dateien und deren Validierung im Upload-Dialog.
 */
 
-import { removeFile } from "./file-remove.js";
+import { removeFile } from "/assets/js/components/file-remove.js";
 
 /* Hauptfunktion für die Dateiannahme und Tabellenaktualisierung */
 

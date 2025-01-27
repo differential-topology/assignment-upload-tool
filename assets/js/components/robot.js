@@ -2,14 +2,14 @@
 Diese Datei implementiert den Chat-Bot mit animiertem Roboter-Avatar, Chat-Verlauf und Animationssteuerung.
 */
 
-import { typeText, cancelTyping } from "../utils/text-utils.js";
-import { openDeveloperSettings } from "./developer-settings-panel.js";
+import { typeText, cancelTyping } from "/assets/js/utils/text-utils.js";
+import { openDeveloperSettings } from "/assets/js/components/developer-settings-panel.js";
 import {
   setUserHasMessaged,
   MAX_BUBBLE_HEIGHT,
   INNER_MAX_HEIGHT,
-} from "../utils/global-state.js";
-import { pushToConversationHistory } from "../utils/system-prompt-config.js";
+} from "/assets/js/utils/global-state.js";
+import { pushToConversationHistory } from "/assets/js/utils/system-prompt-config.js";
 /* Chat-Verlauf und Zustandsverwaltung */
 let conversationData = [];
 let userHasWritten = false;
