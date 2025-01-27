@@ -1,18 +1,18 @@
 /*
 Diese Datei implementiert die Upload-Funktionalität für Hausaufgaben mit Drag&Drop, Fortschrittsanzeige und Benachrichtigungen.
 */
-import { getCurrentPage } from "assets/js/utils/page-utils.js";
+import { getCurrentPage } from "../utils/page-utils.js";
 import {
   handleFiles,
   checkSubmitButtonVisibility,
-} from "assets/js/components/file-upload-handler.js";
-import { loadSubmittedFiles } from "assets/js/components/file-storage-loader.js";
+} from "../components/file-upload-handler.js";
+import { loadSubmittedFiles } from "../components/file-storage-loader.js";
 import {
   updateNotificationDisplay,
   setNotificationTimestamp,
-} from "assets/js/components/notifications.js";
-import { globalSidebarContainer } from "assets/js/utils/global-state.js";
-import { setSubmittedFilesForHA11 } from "assets/js/utils/system-prompt-config.js";
+} from "../components/notifications.js";
+import { globalSidebarContainer } from "../utils/global-state.js";
+import { setSubmittedFilesForHA11 } from "../utils/system-prompt-config.js";
 /* Hauptlogik nur auf der Upload-Seite */
 const currentPage = getCurrentPage();
 

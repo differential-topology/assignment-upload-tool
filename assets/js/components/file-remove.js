@@ -2,15 +2,15 @@
 Diese Datei verwaltet das Entfernen von hochgeladenen Dateien, einschließlich UI-Updates und LocalStorage-Bereinigung.
 */
 
-import { checkSubmitButtonVisibility } from "assets/js/components/file-upload-handler.js";
-import { globalSidebarContainer } from "assets/js/utils/global-state.js";
+import { checkSubmitButtonVisibility } from "./file-upload-handler.js";
+import { globalSidebarContainer } from "../utils/global-state.js";
 import {
   updateNotificationDisplay,
   getOpenNotifications,
   setOpenNotifications,
   removeNotificationTimestamp,
-} from "assets/js/components/notifications.js";
-import { setSubmittedFilesForHA11 } from "assets/js/utils/system-prompt-config.js";
+} from "./notifications.js";
+import { setSubmittedFilesForHA11 } from "../utils/system-prompt-config.js";
 /* Zentrale Funktion zum Entfernen einer Datei mit allen Nebeneffekten */
 export function removeFile(fileName, row) {
   const statusCell = row.children[2];
