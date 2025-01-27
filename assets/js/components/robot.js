@@ -125,7 +125,7 @@ function renderConversationUI() {
       const userMessageContainer = document.createElement("div");
       userMessageContainer.classList.add("user-message");
       const userAvatar = document.createElement("img");
-      userAvatar.src = "../../images/profile-picture.png";
+      userAvatar.src = "https://differential-topology.github.io/assignment-upload-tool/assets/images/profile-picture.png";
       userAvatar.alt = "User Avatar";
       const userMessageBubble = document.createElement("div");
       userMessageBubble.classList.add("user-chat-bubble");
@@ -217,7 +217,7 @@ export function displayUserMessage(text) {
   const userMessageContainer = document.createElement("div");
   userMessageContainer.classList.add("user-message");
   const userAvatar = document.createElement("img");
-  userAvatar.src = "../../images/profile-picture.png";
+  userAvatar.src = "https://differential-topology.github.io/assignment-upload-tool/assets/images/profile-picture.png";
   userAvatar.alt = "User Avatar";
   const userMessageBubble = document.createElement("div");
   userMessageBubble.classList.add("user-chat-bubble");
