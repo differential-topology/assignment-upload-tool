@@ -17,7 +17,7 @@
 <p align="center">
   <a href="https://github.com/differential-topology/assignment-upload-tool.git"><img src="https://img.shields.io/badge/GitHub-Repository-lightgrey.svg" alt="Repository"></a>
   <a href="https://github.com/differential-topology/assignment-upload-tool.git"><img src="https://img.shields.io/badge/Version-0.1.0-orange.svg" alt="Version"></a>
-  <a href="https://github.io/assignment-upload-tool/"><img src="https://img.shields.io/badge/Demo-Live-32CD32.svg" alt="Live Demo"></a>
+  <a href="https://differential-topology.github.io/assignment-upload-tool/"><img src="https://img.shields.io/badge/Demo-Live-32CD32.svg" alt="Live Demo"></a>
   <a href="#lizenz"><img src="https://img.shields.io/badge/Lizenz-Proprietär-red.svg" alt="Proprietäre Lizenz"></a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"><img src="https://img.shields.io/badge/HTML-5-E34C26.svg?style=flat&logo=html5&logoColor=white" alt="HTML"></a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/CSS-3-663399.svg?style=flat&logo=css3&logoColor=white" alt="CSS"></a>
@@ -43,16 +43,18 @@
   <a href="#lizenz">Lizenz</a>
 </p>
 
-![Übersicht des Assignment Upload Tools](https://seafile.cloud.uni-hannover.de/f/8edd9bf13ce942419092/?dl=1)
+![Übersicht des Assignment Upload Tools](assets/images/assignment-upload-tool-overview.gif)
 <a id="demo"></a>
 ## 🔗 Projekt-Demo
-Das *Assignment Upload Tool* direkt online ausprobieren: <div style="text-align: center; margin-top: 0;">
-  <a href="https://github.io/assignment-upload-tool/">
-    <img src="https://dabuttonfactory.com/button.png?t=Live-Demo+starten&f=Open+Sans-Bold&ts=18&tc=fff&hp=16&vp=8&c=5&bgt=unicolored&bgc=32CD32&be=1" alt="Live-Demo starten" style="margin: 0;">
+Das *Assignment Upload Tool* direkt online ausprobieren:
+<p align="center">
+  <a href="https://differential-topology.github.io/assignment-upload-tool/">
+    <img src="https://dabuttonfactory.com/button.png?t=Live-Demo+starten&f=Open+Sans-Bold&ts=18&tc=fff&hp=16&vp=8&c=5&bgt=unicolored&bgc=32CD32&be=1" alt="Live-Demo starten">
   </a>
-</div>
+</p>
 
-<div style="text-align: right;">
+
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
@@ -72,7 +74,7 @@ Das *Assignment Upload Tool* ist ein Prototyp, der für begrenzte [Szenarien](#s
 - **Modernes und interaktives Design**: Bietet klare visuelle Rückmeldungen durch animierte Fortschrittsbalken und einen dynamischen Roboter-Avatar. Unterstützt von LottieFiles zeigt der Avatar Animationen, z. B. während der Bot Nachrichten schreibt.
 - **Responsive Design**: Das Tool passt sich an verschiedene Bildschirmgrößen an und ermöglicht eine optimale Darstellung auf Desktops und mobilen Geräten.
 - **Internationalisierung**: Unterstützt Deutsch 🇩🇪 und Englisch 🇺🇸 (Übersetzung ist zu ca. 70 % abgeschlossen).
-<div style="text-align: right;">
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
@@ -86,7 +88,7 @@ Das *Assignment Upload Tool* ist ein Prototyp, der für begrenzte [Szenarien](#s
 - **Tutor**: Verwenden Sie den Benutzernamen `tutor` und ein beliebiges Passwort. Das Passwortfeld darf nicht leer sein.  
 
 *Hinweis: Funktionen wie Registrierung oder Passwortwiederherstellung sind in diesem Prototypen nicht aktiv.*  
-<div style="text-align: right;">
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
@@ -115,7 +117,7 @@ Das *Assignment Upload Tool* ist ein Prototyp, der für begrenzte [Szenarien](#s
 - Den KI-gestützten Hilfeassistenten verwenden, falls Fragen oder Probleme auftreten.
 - Vor dem Abmelden den Kalender prüfen, um anstehende Termine im Blick zu behalten.
 - Abmelden.
-<div style="text-align: right;">
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
@@ -266,6 +268,7 @@ Um das Assignment Upload Tool lokal auszuführen, folgen Sie diesen Schritten:
 ---
 </details>
 
+- `assignment-upload-tool-overview.gif`
 - `logo.svg`
 - `profile-picture.png`
 - `robot-avatar.png`
@@ -352,9 +355,6 @@ Um das Assignment Upload Tool lokal auszuführen, folgen Sie diesen Schritten:
 
 </details>
 
-<details open>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;📁 public</summary>
-
 - `courses.html`
 - `dashboard.html`
 - `groups.html`
@@ -363,17 +363,13 @@ Um das Assignment Upload Tool lokal auszuführen, folgen Sie diesen Schritten:
 - `settings.html`
 - `upload-assignment.html`
 - `view-correction.html`
----
-
-</details>
-
 - `.gitignore`
 - `README.md`
 
 </details>
   
 
-<div style="text-align: right;">
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
@@ -385,7 +381,7 @@ Um das Assignment Upload Tool lokal auszuführen, folgen Sie diesen Schritten:
 ## 🛠 Technologien
 
 Das Tool wurde vollständig mit **HTML**, **CSS** und **JavaScript** entwickelt. Es wurden keine Frameworks oder Bibliotheken verwendet, um eine maximale Transparenz und Kontrolle über den Quellcode zu gewährleisten. Animationen werden mittels Lottie-Integration und CSS realisiert.
-<div style="text-align: right;">
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
@@ -511,7 +507,7 @@ Neueste Nachricht:
   3. Stellen Sie sicher, dass die Nutzung nicht die Grenzwerte des [kostenlosen Tarifs](#kostenloser-tarif) überschreitet. 
 - **Unzuverlässige Modelle**: Viele der von OpenRouter.ai kostenlos zur Verfügung stehenden Modelle funktionieren nicht zuverlässig, insbesondere die High-End-Experimentalmodelle von Google. In den Standardeinstellungen sind daher Modelle vorausgewählt, die sich als verlässlicher gezeigt haben.  
 - **Fehlermeldungen**: Bei Problemen gibt der Roboter diese in der Regel direkt als Chat-Nachricht aus. Falls dies nicht ausreicht, können in den *Entwicklereinstellungen* ausführliche Logs über den Logger eingesehen werden.  
-<div style="text-align: right;">
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
@@ -527,7 +523,7 @@ Neueste Nachricht:
 - **Flackern**: Insbesondere beim Wechsel zur englischen Sprache treten FOUC und FOTUC auf. Diese Probleme konnten aus zeitlichen Gründen im Prototyp nicht behoben werden.
 <a id="cors-beschraenkungen"></a>
 - **Lokale Ausführung**: Aufgrund von CORS-Beschränkungen ist ein lokaler Webserver erforderlich.
-<div style="text-align: right;">
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
@@ -544,7 +540,7 @@ Neueste Nachricht:
 - **York Schümann** *(Planung)*
 
 Das Projekt wurde im Rahmen einer mehrwöchigen Gruppenarbeit entwickelt.
-<div style="text-align: right;">
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
@@ -559,7 +555,7 @@ Dieses Projekt ist unter einer **proprietären Lizenz** lizenziert. Die Nutzung,
 - [Font Awesome Free](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css), lizenziert unter der [MIT License](https://fontawesome.com/license/free).
 - [Lottie.js](https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js), lizenziert unter der [Lottie Simple License](https://lottiefiles.com/page/license).
 
-<div style="text-align: right;">
+<div align="right">
   <a href="#top">
     <img src="https://dabuttonfactory.com/button.png?t=Zur%C3%BCck+nach+oben&f=Open+Sans-Bold&ts=10&tc=fff&hp=12&vp=6&c=5&bgt=unicolored&bgc=666&be=1" alt="Zurück nach oben">
   </a>
