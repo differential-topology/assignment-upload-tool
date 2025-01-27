@@ -38,7 +38,6 @@ logs/
 # Build-Verzeichnisse
 dist/
 build/
-public/build/
 
 # Umgebungsvariablen-Dateien
 .env

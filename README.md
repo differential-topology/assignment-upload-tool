@@ -46,7 +46,7 @@
 ![Übersicht des Assignment Upload Tools](https://seafile.cloud.uni-hannover.de/f/8edd9bf13ce942419092/?dl=1)
 <a id="demo"></a>
 ## 🔗 Projekt-Demo
-Das *Assignment Upload Tool* direkt online ausprobieren: <div style="text-align: center; margin-top: -40px;">
+Das *Assignment Upload Tool* direkt online ausprobieren: <div style="text-align: center; margin-top: 0;">
   <a href="https://github.io/assignment-upload-tool/">
     <img src="https://dabuttonfactory.com/button.png?t=Live-Demo+starten&f=Open+Sans-Bold&ts=18&tc=fff&hp=16&vp=8&c=5&bgt=unicolored&bgc=32CD32&be=1" alt="Live-Demo starten" style="margin: 0;">
   </a>
