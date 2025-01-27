@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (keyStatusResult.status === "invalid-key") {
         appendPredefinedErrorMessage("INVALID_KEY");
         appendBotMessageToChat(
-          "Bitte kontaktiere die Entwickler vom Assignt Upload Tool. [Fehlermeldung: Ungültiger API-Key]"
+          "Bitte kontaktiere die Entwickler vom Assignment Upload Tool. [Fehlermeldung: Ungültiger API-Key]"
         );
         errorOccurred = true;
         finishRequest(true);
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (keyStatusResult.status === "empty-key") {
         appendPredefinedErrorMessage("NO_API_KEY");
         appendBotMessageToChat(
-          "Bitte kontaktiere die Entwickler vom Assignt Upload Tool. [Fehlermeldung: Kein API-Key eingetragen]"
+          "Bitte kontaktiere die Entwickler vom Assignment Upload Tool. [Fehlermeldung: Kein API-Key eingetragen]"
         );
         errorOccurred = true;
         finishRequest(true);
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (keyStatusResult.status !== "valid-key") {
         appendPredefinedErrorMessage("NO_QUOTA_OR_OTHER_ERROR");
         appendBotMessageToChat(
-          "Bitte kontaktiere die Entwickler vom Assignt Upload Tool. [Fehler: Kein Kontingent mehr oder anderweitiger Fehler]"
+          "Bitte kontaktiere die Entwickler vom Assignment Upload Tool. [Fehler: Kein Kontingent mehr oder anderweitiger Fehler]"
         );
         errorOccurred = true;
         finishRequest(true);
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         } else {
           finalBotResponse =
-            "Bitte kontaktiere die Entwickler vom Assignt Upload Tool. [Fehler: unknown issue]";
+            "Bitte kontaktiere die Entwickler vom Assignment Upload Tool. [Fehler: unknown issue]";
           appendBotMessageToChat(finalBotResponse);
           errorOccurred = true;
           finishRequest(true);
