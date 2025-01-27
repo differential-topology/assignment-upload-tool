@@ -8,11 +8,14 @@
   <br>
 </h1>
 
-<p style="text-align: center;">
-  Ein Prototyp eines <strong>webbasierten Tools für Studierende und Tutor:innen</strong> zum Hochladen, Korrigieren und Verwalten von Studienaufgaben.
-</p>
-
-<p style="font-size: 0.8em; text-align: left;">Entwickelt im Rahmen einer Gruppenarbeit in "Grundlagen der Mensch-Computer-Interaktion", Leibniz Universität Hannover (WiSe 2024/25).</p>
+<div align="center">
+  <p>
+    Prototyp eines <strong>webbasierten Tools für Studierende und Tutor:innen</strong> zum Hochladen, Korrigieren und Verwalten von Studienaufgaben.
+  </p>
+  <p>
+    Entwickelt im Rahmen einer Gruppenarbeit in <em>Grundlagen der Mensch-Computer-Interaktion</em>, Leibniz Universität Hannover (WiSe 2024/25).
+  </p>
+</div>
 
 <p align="center">
   <a href="https://github.com/differential-topology/assignment-upload-tool.git"><img src="https://img.shields.io/badge/GitHub-Repository-lightgrey.svg" alt="Repository"></a>
